@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_secure password
+  has_secure_password
 
   before_validation :downcase_email
 
@@ -15,25 +15,17 @@ class User < ApplicationRecord
                    format: VALID_EMAIL_REGEX
                   #  unless: :from_oauth?
 
- # def signed_in_with_twitter?
- #   uid.present? && provider == 'twitter'
- # end
-
-
   def full_name
     "#{first_name} #{last_name}".strip.squeeze(' ').titleize
   end
 
     # before_create :generate_api_key
 
-  end
-
-
   private
-
-
 
   def downcase_email
     self.email.downcase! if email.present?
   end
+
+
 end
