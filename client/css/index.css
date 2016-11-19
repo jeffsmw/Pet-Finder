@@ -1,11 +1,36 @@
-nav {
+.action-container {
   max-width:300px;
   height: 100vh;
   border-right: 1px solid lightgrey;
 }
-nav #header {
+
+.action-container .header {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+
   height:100px;
   border-bottom: 1px solid lightgrey;
+  padding: 20px;
 }
+
+.action-container #list-view .header {
+  background-color: #1EAFF9;
+  color: #fff;
+}
+
+.action-container .header .title {
+  width: 33%;
+}
+
+.action-container .header .back-button {
+  font-weight: bold;
+  width: 33%;
+}
+
+nav {
+
+}
+
 nav .li {
 }

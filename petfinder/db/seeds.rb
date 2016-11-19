@@ -34,7 +34,6 @@ puts "Generate Message successfully"
 Sighting.destroy_all
 10.times do
   Sighting.create ({pet_type: Faker::Pokemon.name,
-                    last_seen: Faker::Address.street_address,
                     date_seen: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
                     note: Faker::Lorem.paragraph,
                     images: Faker::Lorem.sentence,
@@ -56,15 +55,15 @@ Pet.destroy_all
                sex: ['M', 'F'].sample,
                color: Faker::Color.color_name,
                age: Faker::Number.between(1, 10),
-               last_seen: Faker::Address.street_address,
+               # last_seen: Faker::Address.street_address,
                date_seen: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
                note: Faker::Lorem.paragraph,
                images: Faker::Lorem.sentence,
                lost: Faker::Boolean.boolean,
                user: User.all.sample,
-               location:Faker::Lorem.sentence,
-               longitude:rand(),
-               latitude:rand()
+               # location:Faker::Lorem.sentence,
+               # longitude:rand(),
+               # latitude:rand()
 
 
 
