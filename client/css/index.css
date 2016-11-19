@@ -6,6 +6,7 @@
 
 .action-container .header {
   display: flex;
+  align-items: stretch;
   width: 100%;
 
   height:100px;
@@ -19,11 +20,12 @@
 }
 
 .action-container .header .title {
-  align-self: center;
+  width: 33%;
 }
 
 .action-container .header .back-button {
   font-weight: bold;
+  width: 33%;
 }
 
 nav {
