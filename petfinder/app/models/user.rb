@@ -46,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def signed_in_with_google?
-    uid.present? && provider == 'google'
+    uid.present? && provider ==  'google_oauth2'
   end
 
   def full_name
