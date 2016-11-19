@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :pets
+  has_many :sightings
+  has_many :messages, dependent: :destroy
 
   has_secure_password
 
@@ -19,13 +22,16 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}".strip.squeeze(' ').titleize
   end
 
-    # before_create :generate_api_key
+
 
   private
 
+  #
+  #
   def downcase_email
     self.email.downcase! if email.present?
   end
+
 
 
 end

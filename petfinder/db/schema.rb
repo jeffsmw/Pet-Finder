@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119033028) do
+ActiveRecord::Schema.define(version: 20161119184909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,36 +20,43 @@ ActiveRecord::Schema.define(version: 20161119033028) do
     t.string   "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "pets", force: :cascade do |t|
-    t.string   "type"
+    t.string   "pet_type"
     t.string   "breed"
     t.string   "name"
     t.string   "sex"
     t.string   "color"
     t.integer  "age"
-    t.string   "last_seen"
     t.datetime "date_seen"
     t.string   "note"
     t.string   "images"
     t.boolean  "lost"
-    t.string   "location"
+    t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
   create_table "sightings", force: :cascade do |t|
-    t.string   "type"
-    t.string   "last_seen"
+    t.string   "pet_type"
     t.datetime "date_seen"
     t.string   "note"
-    t.string   "image"
+    t.string   "images"
     t.string   "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.index ["user_id"], name: "index_sightings_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,4 +69,7 @@ ActiveRecord::Schema.define(version: 20161119033028) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "messages", "users"
+  add_foreign_key "pets", "users"
+  add_foreign_key "sightings", "users"
 end
