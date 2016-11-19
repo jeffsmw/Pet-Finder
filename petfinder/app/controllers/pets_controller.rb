@@ -1,6 +1,4 @@
 class PetsController < ApplicationController
-<<<<<<< HEAD
-=======
   before_action :authenticate_user, except: [:index, :show]
   # before_action :authorize_access, only: [:edit, :update, :destroy]
   before_action :find_pet, only: [:edit, :update, :destroy, :show]
@@ -82,6 +80,4 @@ class PetsController < ApplicationController
     @pet = Pet.find params[:id]
   end
 
-
->>>>>>> controlers
 end
