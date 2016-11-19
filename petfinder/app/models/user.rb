@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  mount_uploader :image, UserImageUploader
   before_validation :downcase_email
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
