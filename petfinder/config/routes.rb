@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'home#index'
 
     # get '/auth/facebook', as: :sign_in_with_facebook
     # get '/auth/facebook/callback' => 'callbacks#facebook'
@@ -18,5 +17,9 @@ Rails.application.routes.draw do
 
     # get '/contact' => 'home#contact'
     # post '/contact_submit' => 'home#contact_submit'
+
+
+  resources :users
+  resources :sessions
 
 end
