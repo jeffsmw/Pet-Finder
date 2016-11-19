@@ -13,12 +13,17 @@ class UsersController < ApplicationController
                                                 :city])
     @user = User.new user_params
     if @user.save
-      session[:user_id] = @user.id
+      PetMailer.notify_pet_owner(@user).deliver_now
+      render json: @user.to_json
+      # session[:user_id] = @user.id
+    else
+      render :new
     end
   end
 
   def show
     @user = User.find params[:id]
+    render json: @user.to_json
   end
 
   def edit
@@ -28,7 +33,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     if @user.update user_params
-      render :json
+      # format.json { render json: {status: "successfully delete"} }
+      render json: @user.to_json
     else
       render :edit
     end
