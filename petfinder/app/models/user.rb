@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true,
                    uniqueness: { case_sensitive: false },
-                   format: VALID_EMAIL_REGEX,
+                   format: VALID_EMAIL_REGEX
                   #  unless: :from_oauth?
 
  # def signed_in_with_twitter?
@@ -36,3 +36,4 @@ class User < ApplicationRecord
   def downcase_email
     self.email.downcase! if email.present?
   end
+end
