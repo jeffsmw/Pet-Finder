@@ -4,37 +4,68 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <script src="js/index.js"></script>
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
     <title>find my pet</title>
   </head>
   <body>
-    <!-- <div class="action-container">
-      <nav>
-        <div id="home">
-          <ul class="nav nav-stacked">
-            <li role="presentation"><div class="header"></div></li>
-            <li role="presentation"><a href="#">Lost Pet</a></li>
-            <li role="presentation"><a href="#">Found/Sighted Pet</a></li>
-            <li role="presentation"><a href="#">About find my pet</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div> -->
     <div class="action-container">
       <div id="list-view">
-        <div class="header">
-          <div class="back-button">
-            &lt;
-          </div>
-          <div class="title">
-            LOST PETS
-          </div>
-        </div>
-          
+        <nav>
+          <section id="home">
+            <div class="header">
+              <div class="back-button">
+              </div>
+              <div class="title">
+                Home
+              </div>
+            </div>
+            <ul class="nav nav-stacked">
+              <li role="presentation" id="lost-pet"><a href="#">Lost Pet</a></li>
+              <li role="presentation" id="found-pet"><a href="#">Found/Sighted Pet</a></li>
+              <li role="presentation" id="about-us"><a href="#">About find my pet</a></li>
+            </ul>
+          </section>
 
+          <section id="lost-pet">
+            <div class="header">
+              <div class="back-button">
+                &lt;
+              </div>
+              <div class="title">
+                LOST PETS
+              </div>
+            </div>
+          </section>
+
+          <section id="found-pet">
+            <div class="header">
+              <div class="back-button">
+                &lt;
+              </div>
+              <div class="title">
+                Found/Sighted Pet
+              </div>
+            </div>
+          </section>
+
+          <section id="about-us">
+            <div class="header">
+              <div class="back-button">
+                &lt;
+              </div>
+              <div class="title">
+                About Us
+              </div>
+            </div>
+          </section>
+
+        </nav>
       </div>
     </div>
+    <main>map/cards
+    </main>
+
   </body>
 </html>
