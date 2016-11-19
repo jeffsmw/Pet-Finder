@@ -4,6 +4,7 @@ body {
 
 .action-container {
   width:300px;
+  min-width: 300px;
   height: 100vh;
   border-right: 1px solid lightgrey;
   margin-right: 0;
@@ -19,25 +20,37 @@ body {
   padding: 20px;
 }
 
-.action-container #list-view .header {
+.action-container .header {
   background-color: #1EAFF9;
   color: #fff;
 }
 
-.action-container .header .title {
+.action-container .header {
+  margin-bottom: 20px;
+}
+
+nav .header .title {
   width: 33%;
 }
 
-.action-container .header .back-button {
+nav .back-button {
   font-weight: bold;
   width: 33%;
 }
-.action-container .header .back-button:hover {
+
+nav .back-button:hover {
   color: #FFF;
 }
 
 nav {
 
+}
+
+nav .nav-title {
+  position: relative;
+  background: #eee;
+  display: block;
+  padding: 10px 15px;
 }
 
 nav .li {
@@ -56,5 +69,13 @@ section#found-pet {
 }
 
 section#about-us {
+  display: none;
+}
+
+section#messages{
+  display: none;
+}
+
+section#settings{
   display: none;
 }
