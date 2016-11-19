@@ -14,9 +14,6 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user), notice: 'Thank you for signing up'
-    else
-      render :new
     end
   end
 
@@ -31,7 +28,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     if @user.update user_params
-      falsh[:success] = "your account was updated successfully"
       render :json
     else
       render :edit

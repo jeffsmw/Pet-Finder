@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :pets
   has_many :sightings
   has_many :messages, dependent: :destroy
@@ -52,16 +53,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}".strip.squeeze(' ').titleize
   end
 
-
-
   private
 
-  #
-  #
   def downcase_email
     self.email.downcase! if email.present?
   end
-
-
 
 end
