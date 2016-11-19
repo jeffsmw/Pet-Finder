@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/mustache.js" type="text/javascript"></script>
     <script src="js/index.js"></script>
     <title>find my pet</title>
   </head>
@@ -64,7 +65,14 @@
         </nav>
       </div>
     </div>
-    <main>map/cards
+    <main>
+      <ul class="pet-listing"></ul>
+      <script id="pet-list" type="x-tmpl-mustache">
+        <li data-id={{id}}>
+          <h3><a href="#">{{title}}</a></h3>
+          <p>Note: {{body}}</p>
+        </li>
+      </script>
     </main>
 
   </body>
