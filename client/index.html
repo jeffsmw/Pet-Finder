@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="action-container">
-      <div id="list-view">
+
         <nav>
           <section id="home">
             <div class="header">
@@ -23,8 +23,11 @@
               </div>
             </div>
             <ul class="nav nav-stacked">
-              <li role="presentation" id="lost-pet"><a href="#">Lost Pet</a></li>
+              <li role="presentation" id="lost-pet"><a href="#">Report Your Lost Pet</a></li>
               <li role="presentation" id="found-pet"><a href="#">Found/Sighted Pet</a></li>
+              <li role="presentation" class="nav-title">Account</li>
+              <li role="presentation" id="messages"><a href="#">Messages</a></li>
+              <li role="presentation" id="settings"><a href="#">Settings</a></li>
               <li role="presentation" id="about-us"><a href="#">About find my pet</a></li>
             </ul>
           </section>
@@ -35,8 +38,56 @@
                 &lt;
               </div>
               <div class="title">
-                LOST PETS
+                LOST PET
               </div>
+            </div>
+            <div class="container-fluid">
+              <form>
+                <div class="form-group col-xs-12">
+                  <label for="pet-type">Pet Type</label>
+                  <input type="input" class="form-control" id="pet-type">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="pet-breed">Breed</label>
+                  <input type="input" class="form-control" id="pet-breed">
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="pet-name">Name</label>
+                  <input type="input" class="form-control" id="pet-name">
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="pet-gender">Gender</label>
+                  <input type="input" class="form-control" id="pet-gender">
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="pet-color">Color</label>
+                  <input type="input" class="form-control" id="pet-color">
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="pet-age">Age</label>
+                  <input type="input" class="form-control" id="pet-age">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="last-seen">Last seen at</label>
+                  <input type="input" class="form-control" id="last-seen">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="date-time">Date/time</label>
+                  <input type="input" class="form-control" id="date-time">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="notes">Notes</label>
+                  <textarea class="form-control" id="notes" rows="3"></textarea>
+                </div>
+
+                <div class="form-group col-xs-12">
+                  <label for="pet-photos">Add photos</label>
+                  <input type="file" id="pet-photos">
+                </div>
+                <div class="col-xs-12">
+                  <button type="submit" class="btn btn-primary">Preview Report</button>
+                </div>
+              </form>
             </div>
           </section>
 
@@ -48,6 +99,33 @@
               <div class="title">
                 Found/Sighted Pet
               </div>
+            </div>
+            <div class="container-fluid">
+              <form>
+                <div class="form-group col-xs-12">
+                  <label for="pet-photos">Add photos</label>
+                  <input type="file" id="pet-photos">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="pet-type">Pet Type</label>
+                  <input type="input" class="form-control" id="pet-type">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="last-seen">Last seen at</label>
+                  <input type="input" class="form-control" id="last-seen">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="date-time">Date/time</label>
+                  <input type="input" class="form-control" id="date-time">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="notes">Notes</label>
+                  <textarea class="form-control" id="notes" rows="3"></textarea>
+                </div>
+                <div class="col-xs-12">
+                  <button type="submit" class="btn btn-primary">Preview Report</button>
+                </div>
+              </form>
             </div>
           </section>
 
@@ -62,8 +140,30 @@
             </div>
           </section>
 
+          <section id="messages">
+            <div class="header">
+              <div class="back-button">
+                &lt;
+              </div>
+              <div class="title">
+                Messages
+              </div>
+            </div>
+          </section>
+
+          <section id="settings">
+            <div class="header">
+              <div class="back-button">
+                &lt;
+              </div>
+              <div class="title">
+                Settings
+              </div>
+            </div>
+          </section>
+
         </nav>
-      </div>
+
     </div>
     <main>
       <ul class="pet-listing"></ul>
