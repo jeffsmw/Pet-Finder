@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 User.destroy_all
 10.times do
   User.create ({first_name: Faker::Name.first_name,
@@ -47,7 +46,6 @@ puts "Generate sightings successfully"
 
 
 Pet.destroy_all
-
 10.times do
   Pet.create ({pet_type: Faker::Name.name,
                breed: Faker::Name.name,
@@ -55,18 +53,11 @@ Pet.destroy_all
                sex: ['M', 'F'].sample,
                color: Faker::Color.color_name,
                age: Faker::Number.between(1, 10),
-               # last_seen: Faker::Address.street_address,
                date_seen: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
                note: Faker::Lorem.paragraph,
                images: Faker::Lorem.sentence,
                lost: Faker::Boolean.boolean,
-               user: User.all.sample,
-               # location:Faker::Lorem.sentence,
-               # longitude:rand(),
-               # latitude:rand()
-
-
-
+               user: User.all.sample
   })
 end
 puts "Generate pets successfully"
