@@ -166,14 +166,19 @@
 
     </div>
     <main>
-      <ul class="pet-listing"></ul>
+      <div class="container">
+        <div class="row pet-listing">
+        </div>
+      </div>
       <script id="pet-list" type="x-tmpl-mustache">
-        <li data-id={{id}}>
-          <h3><a href="#">{{title}}</a></h3>
-          <p>Note: {{body}}</p>
-        </li>
+        <div class="card pet-card col-sm-12 col col-md-6" data-id={{id}}>
+          <img class="card-img-top" src="" alt="Card image caption">
+          <div class="card-block">
+            <h4 class="card-title">{{title}}</h4>
+            <p class="card-text">{{body}}</p>
+          </div>
+        </div>
       </script>
     </main>
-
   </body>
 </html>

@@ -5,9 +5,14 @@ body {
 .action-container {
   width:300px;
   min-width: 300px;
-  height: 100vh;
   border-right: 1px solid lightgrey;
-  margin-right: 0;
+  height: 100vh;
+  /*margin-right: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;*/
+  overflow-y: scroll;
 }
 
 .action-container .header {
@@ -53,13 +58,6 @@ nav .nav-title {
   padding: 10px 15px;
 }
 
-nav .li {
-}
-
-nav#home {
-
-}
-
 section#lost-pet{
   display: none;
 }
@@ -78,4 +76,23 @@ section#messages{
 
 section#settings{
   display: none;
+}
+
+.pet-listing li {
+  list-style-type: none;
+  display: flex;
+}
+.pet-card {
+  border: 1px solid lightgrey;
+  width: 100%;
+  padding: 0;
+}
+
+.card-img-top {
+  height: 100px;
+  height: 150px;
+}
+main {
+  overflow-y: scroll;
+  height: 100vh;
 }
