@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :email, presence: true,
                    uniqueness: { case_sensitive: false },
                    format: VALID_EMAIL_REGEX
-                   unless: :from_oauth?
+                  #  unless: :from_oauth?
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|

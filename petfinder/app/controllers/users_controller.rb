@@ -13,7 +13,8 @@ class UsersController < ApplicationController
                                                 :city])
     @user = User.new user_params
     if @user.save
-      session[:user_id] = @user.id
+      PetMailer.notify_pet_owner(@user).deliver_now
+      # session[:user_id] = @user.id
     end
   end
 
