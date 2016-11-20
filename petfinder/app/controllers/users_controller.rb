@@ -12,18 +12,34 @@ class UsersController < ApplicationController
                                                 :image,
                                                 :city])
     @user = User.new user_params
-    if @user.save
-      PetMailer.notify_pet_owner(@user).deliver_now
-      render json: @user.to_json
-      # session[:user_id] = @user.id
-    else
-      render :new
+
+    respond_to do |format|
+      if @user.save
+        PetMailer.notify_pet_owner(@user).deliver_now
+        # render json: @user.to_json
+        # session[:user_id] = @user.id
+        format.js { render :success}
+        format.html{
+          redirect_to user_path(@user)
+        }
+      else
+        format.js { render :fail }
+        format.html{
+          render 'users/new'
+         }
+      end
     end
   end
 
   def show
     @user = User.find params[:id]
-    render json: @user.to_json
+    # render json: @user.to_json
+    respond_to do |format|
+      format.html { render }
+      format.text { render }
+      format.xml { render xml: @user }
+      format.json { render json: @user.to_json }
+    end
   end
 
   def edit

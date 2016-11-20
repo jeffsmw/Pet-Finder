@@ -3,6 +3,7 @@
  */
 
 var DOMAIN = 'http://localhost:3000';
+var LOCALPATH = 'file:///Users/Daniel/Desktop/codecore/group-proj/group-project/petfinder';
 
 $(function () {
 
@@ -13,7 +14,12 @@ $(function () {
         var password = $('#log-in-form-password').val();
         // console.log(email);
         // console.log(password);
-        $.post(DOMAIN + '/sessions', {email: email, password: password})
+        var DOMAIN = 'http://localhost:3000';
+
+        $.post(DOMAIN + '/sessions', {email: email, password: password},
+          function(){
+            window.location.replace(LOCALPATH + "/Client/Test/index.html");
+          });
 
     });
 
