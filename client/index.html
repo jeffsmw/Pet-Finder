@@ -13,21 +13,28 @@
     <title>find my pet</title>
   </head>
   <body>
+
     <div id="mobile-menu">
     </div>
+
+      <section id="welcome-page" class="container-fluid">
+      <div class="header row">
+        <div class="banner">
+          <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+          <h1>Find My Pet</h1>
+        </div>
+      </div>
+      <div class="content">
+
+      </div>
+    </section>
+
     <main>
       <div id="test" class="action-container">
 
 
         <nav>
-          <section id="welcome">
-            <div class="header">
-              <div class="banner">
-                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                <h1>Find My Pet</h1>
-              </div>
-            </div>
-          </section>
+
 
           <section id="home">
             <div class="header">
@@ -58,47 +65,47 @@
                 </div>
               </div>
               <div class="container-fluid">
-                <form>
+                <form id="target" action="http://localhost:3000/pets" method="post" enctype="multipart/form-data">
                   <div class="form-group col-xs-12">
                     <label for="pet-type">Pet Type</label>
-                    <input type="input" class="form-control" id="pet-type">
+                    <input type="input" name="pet-type" class="form-control" id="pet-type">
                   </div>
                   <div class="form-group col-xs-12">
                     <label for="pet-breed">Breed</label>
-                    <input type="input" class="form-control" id="pet-breed">
+                    <input type="input" name="pet-breed" class="form-control" id="pet-breed">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="pet-name">Name</label>
-                    <input type="input" class="form-control" id="pet-name">
+                    <input type="input" name="pet-name" class="form-control" id="pet-name">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="pet-gender">Gender</label>
-                    <input type="input" class="form-control" id="pet-gender">
+                    <input type="input" name="pet-gender" class="form-control" id="pet-gender">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="pet-color">Color</label>
-                    <input type="input" class="form-control" id="pet-color">
+                    <input type="input" name="pet-color" class="form-control" id="pet-color">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="pet-age">Age</label>
-                    <input type="input" class="form-control" id="pet-age">
+                    <input type="input" name="pet-age" class="form-control" id="pet-age">
                   </div>
                   <div class="form-group col-xs-12">
                     <label for="last-seen">Last seen at</label>
-                    <input type="input" class="form-control" id="last-seen">
+                    <input type="input" name="last-seen" class="form-control" id="last-seen">
                   </div>
                   <div class="form-group col-xs-12">
                     <label for="date-time">Date/time</label>
-                    <input type="input" class="form-control" id="date-time">
+                    <input type="input" name="date-time" class="form-control" id="date-time">
                   </div>
                   <div class="form-group col-xs-12">
                     <label for="notes">Notes</label>
-                    <textarea class="form-control" id="notes" rows="3"></textarea>
+                    <textarea class="form-control" name="notes" id="notes" rows="3"></textarea>
                   </div>
 
                   <div class="form-group col-xs-12">
                     <label for="pet-photos">Add photos</label>
-                    <input type="file" id="pet-photos">
+                    <input type="file" name="pet-photos" id="pet-photos">
                   </div>
                   <div class="col-xs-12">
                     <button type="submit" class="btn btn-primary">Preview Report</button>
