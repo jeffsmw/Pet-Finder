@@ -23,9 +23,6 @@ Rails.application.routes.draw do
   resources :sessions
   resources :sightings
   resources :pets
-  resources :conversations do
-    resources :messages
-  end
 
   resources :home, only: :index
 
