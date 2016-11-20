@@ -1,17 +1,29 @@
-/*body {
-  display: inline-block;
-}*/
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+/*600*/
+@media (max-width:800px){
+  .action-container {
+    display:none;
+  }
+  div#main-container {
+    margin-left: 0;
+    left: 0;
+    width:100%;
+  }
+}
+
+#mobile-menu {
+  width: 100vw;
+  height: 50px;
+  display: none;
+}
 
 .action-container {
   width:300px;
   min-width: 300px;
   border-right: 1px solid lightgrey;
   height: 100vh;
-  /*margin-right: 0;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  bottom: 0;*/
   overflow-y: scroll;
 }
 
@@ -34,10 +46,36 @@
   margin-bottom: 20px;
 }
 
+.action-container #app-version {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: small;
+  font-weight: 100;
+  color:#ccc;
+}
+
+section#home div.header {
+  margin-bottom: 0;
+}
+section#home ul li {
+  margin: 0;
+}
+
+section#home ul li:not(:last-child){
+  border-bottom: 1px solid lightgrey;
+
+}
 nav .header .title {
   width: 33%;
 }
 
+nav .divider {
+  color: #888;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: xx-small;
+}
 nav .back-button {
   font-weight: bold;
   width: 33%;
@@ -45,10 +83,6 @@ nav .back-button {
 
 nav .back-button:hover {
   color: #FFF;
-}
-
-nav {
-
 }
 
 nav .nav-title {
@@ -78,42 +112,6 @@ section#settings{
   display: none;
 }
 
-.pet-listing li {
-  list-style-type: none;
-  display: flex;
-}
-
-.pet-card {
-  border: 1px solid lightgrey;
-  width: 100%;
-  margin: 5px;
-  padding: 0;
-  height: 300px;
-  margin: 15px 0;
-}
-
-.card-img-top {
-  object-fit: cover;
-  width:100%;
-  height: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card-block .card-title{
-  text-align: left;
-  color: #1EAFF9;
-  font-size: x-small;
-  word-wrap: break-word;
-}
-
-.card-block .card-text{
-  text-align: left;
-  font-size: small;
-  word-wrap: break-word;
-}
-
 #main-container {
   position: fixed;
   top: 0;
@@ -124,4 +122,50 @@ section#settings{
 }
 #main-container div.container {
   width: 100%;
+
+  background-color: #EBF1F5;
+}
+
+.pet-listing li {
+  list-style-type: none;
+  display: flex;
+}
+
+.pet-card {
+  width: 100%;
+  margin: 5px;
+  padding: 0;
+  height: 300px;
+  margin: 15px 0;
+  background-color: white;
+  box-shadow: 2px 2px 5px #AAA;
+}
+
+.pet-card .card-img-top {
+  object-fit: cover;
+  width:100%;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pet-card .card-bottom {
+  height: 100px;
+  padding: 10px;
+  /*background-color: blue;*/
+}
+
+
+.pet-card .card-block .card-title{
+  text-align: left;
+  color: #1EAFF9;
+  font-size: x-small;
+  word-wrap: break-word;
+}
+
+.pet-card .card-block .card-text{
+  text-align: left;
+  font-size: small;
+  word-wrap: break-word;
 }
