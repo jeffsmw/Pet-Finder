@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     # get '/contact' => 'home#contact'
     # post '/contact_submit' => 'home#contact_submit'
 
-
+  root 'home#index'
   resources :users
   resources :sessions
   resources :sightings
