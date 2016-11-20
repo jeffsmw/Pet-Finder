@@ -121,8 +121,6 @@ function createPet() {
     images: pet-photos,
     lost:   true,
     address: last-seen,
-    longitude: longitude,
-    latitude:  latitude,
     user_id: current_user
   });
 }

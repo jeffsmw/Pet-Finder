@@ -51,6 +51,7 @@
                 <div role="presentation" class="nav-title divider">ACCOUNT</div>
                 <li role="presentation"><a id="messages" href="#">Messages</a></li>
                 <li role="presentation"><a id="settings" href="#">Settings</a></li>
+                <li role="presentation"><a id="login" href="#">Login</a></li>
                 <li role="presentation"><a id="about-us" href="#">About find my pet</a></li>
               </ul>
             </section>
@@ -205,6 +206,32 @@
                 <div class="title">
                   Settings
                 </div>
+              </div>
+            </section>
+
+            <section id="login">
+              <div class="header">
+                <div class="back-button">
+                  <a href="#">&lt;</a>
+                </div>
+                <div class="title">
+                  Login
+                </div>
+              </div>
+              <div>
+                <form id="login-form" action="http://localhost:3000/sessions" method="post">
+                  <div>
+                    <label>Email: </label>
+                    <input type="email" id="log-in-form-email">
+                  </div>
+                  <div>
+                    <label>Password: </label>
+                    <input type="password" id="log-in-form-password">
+                  </div>
+                  <div>
+                    <input type="submit">
+                  </div>
+                </form>
               </div>
             </section>
 

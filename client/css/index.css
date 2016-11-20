@@ -159,6 +159,10 @@ section#settings{
   display: none;
 }
 
+section#login{
+  display: none;
+}
+
 #main-container {
   position: fixed;
   top: 0;
