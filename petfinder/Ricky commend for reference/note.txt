@@ -97,13 +97,24 @@ Sighting
 
 
 ************************
-gco master
-git pull origin master
-
 gco controller_sighting_Ricky
 git add
 git commit
-git merge master
+git push origin controller_sighting_Ricky
+
+
+gco master
+git pull origin master
+
+git merge controller_sighting_Ricky
+
+conflic 
+
+git add
+git commit
+
+git push origin master
+
 **********************
 
 

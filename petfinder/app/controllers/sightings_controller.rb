@@ -26,6 +26,8 @@ class SightingsController < ApplicationController
   #http://localhost:3000/sightings.json?sighting[pet_type]=123
   def create
 
+    session[:user_id]='adasd'
+    byebug
     # @user_id=params[:user_id]
     @sighting = Sighting.new(sighting_params)
     # @sighting.user=User.find(@user_id)

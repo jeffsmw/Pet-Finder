@@ -4,6 +4,6 @@ class Pet < ApplicationRecord
   attr_accessor :facebook_post_this
   attr_accessor :address, :latitude, :longitude
   geocoded_by :address
-  after_validation: :geocode
-
+  # after_validations: :geocode
+  after_validation :geocode
 end
