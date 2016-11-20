@@ -1,36 +1,219 @@
+body {
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media (max-width:600px){
+  .action-container {
+    display:none;
+  }
+  div#main-container {
+    left: 0;
+    top: 50px;
+    width:100%;
+  }
+  #mobile-menu {
+    display: block !important;
+  }
+}
+
+#mobile-menu {
+  display:none;
+  /*background-color: #1EAFF9;*/
+  background-color: #e7f2fd;
+  width: 100vw;
+  height: 50px;
+}
+
 .action-container {
-  max-width:300px;
-  height: 100vh;
+  width:300px;
+  min-width: 300px;
   border-right: 1px solid lightgrey;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .action-container .header {
   display: flex;
-  align-items: stretch;
+  /*justify-content: center;*/
+  align-items: center;
   width: 100%;
-
   height:100px;
   border-bottom: 1px solid lightgrey;
   padding: 20px;
 }
 
-.action-container #list-view .header {
-  background-color: #1EAFF9;
-  color: #fff;
+.action-container .header {
+  /*background-color: #1EAFF9;*/
+  background-color: #e7f2fd;
+  /*color: #fff;*/
+  color: #000;
 }
 
 .action-container .header .title {
+
+}
+
+.action-container .header {
+  margin-bottom: 20px;
+}
+
+.action-container #app-version {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: small;
+  font-weight: 100;
+  color:#ccc;
+}
+
+section#home div.header {
+  margin-bottom: 0;
+}
+section#home ul li {
+  margin: 0;
+}
+
+section#home ul li:not(:last-child){
+  border-bottom: 1px solid lightgrey;
+
+}
+nav .header .title {
   width: 33%;
 }
 
-.action-container .header .back-button {
+nav .divider {
+  color: #888;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: xx-small;
+}
+nav .back-button {
   font-weight: bold;
   width: 33%;
 }
 
-nav {
-
+nav .back-button:hover {
+  color: #FFF;
 }
 
-nav .li {
+nav .nav-title {
+  position: relative;
+  background: #eee;
+  display: block;
+  padding: 10px 15px;
+}
+
+#welcome-page {
+  width: 100vw;
+}
+
+#welcome-page .header {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  background: #333;
+  color: #fff;
+}
+
+#welcome-page .header .banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#welcome-page .header .glyphicon {
+  font-size: 42px;
+}
+
+#welcome-page .header h1 {
+  font-size: 24px;
+  font-family: 'Patua One', cursive;
+}
+
+section#welcome-page{
+  display: none;
+}
+
+section#lost-pet{
+  display: none;
+}
+
+section#found-pet {
+  display: none;
+}
+
+section#about-us {
+  display: none;
+}
+
+section#messages{
+  display: none;
+}
+
+section#settings{
+  display: none;
+}
+
+#main-container {
+  position: fixed;
+  top: 0;
+  left: 300px;
+  right: 0;
+  height: 100vh;
+  border: 1px solid red;
+  overflow-y: auto;
+}
+#main-container div.container {
+  width: 100%;
+  background-color: #EBF1F5;
+}
+
+.pet-listing li {
+  list-style-type: none;
+  display: flex;
+}
+
+.pet-card {
+  width: 100%;
+  margin: 5px;
+  padding: 0;
+  height: 300px;
+  margin: 15px 0;
+  background-color: white;
+  box-shadow: 2px 2px 5px #AAA;
+
+  /*fixes text from leaving the card*/
+  text-overflow: ellipsis;
+  overflow: hidden;
+  whitespace: no-wrap;
+}
+
+.pet-card .card-img-top {
+  object-fit: cover;
+  width:100%;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pet-card .card-bottom {
+  height: 100px;
+  padding: 10px;
+  /*background-color: blue;*/
+}
+
+
+.pet-card .card-block .card-title{
+  text-align: left;
+  color: #1EAFF9;
+  font-size: x-small;
+  word-wrap: break-word;
+}
+
+.pet-card .card-block .card-text{
+  text-align: left;
+  font-size: small;
+  word-wrap: break-word;
 }
