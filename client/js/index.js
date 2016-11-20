@@ -7,7 +7,7 @@ $(function() {
 
 var setup = function() {
   // Menu selector
-  $('li').on('click', function() {
+  $('li a').on('click', function() {
     var id = $(this).attr('id');
     var backId = $(this).parents('section').attr('id');
     $(this).parents('section').hide();
