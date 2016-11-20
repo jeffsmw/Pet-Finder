@@ -153,6 +153,28 @@
               </div>
             </section>
 
+            <section id="show-sighting">
+              <div class="header">
+                <div class="back-button">
+                  <a href="#">&lt;</a>
+                </div>
+                <div class="title">
+                  Pet Sighting
+                </div>
+              </div>
+              <div class="content">
+                <section class="pet-details"></section>
+                <script id="pet-details" type="x-tmpl-mustache">
+
+                  <p>Pet type: {{pet_type}}</p>
+                  <p>Last Seen: {{last_seen}}</p>
+                  <p>Date/Time: {{date_seen}}</p>
+                  <p>Note: {{note}}</p>
+                </script>
+              </div>
+
+            </section>
+
             <section id="about-us">
               <div class="header">
                 <div class="back-button">
@@ -186,6 +208,8 @@
               </div>
             </section>
 
+
+
             <div id="app-version">
               Find my pet V.01
             </div>
@@ -194,7 +218,7 @@
       </div>
 
       <div id="main-container">
-        <section class="pet-details"></section>
+        <!-- <section class="pet-details"></section>
         <script id="pet-details" type="x-tmpl-mustache">
           <h1>Lost Pet</h1>
           <p>Pet type: {{pet_type}}</p>
@@ -206,7 +230,7 @@
           <p>Last Seen: {{date_seen}}</p>
           <p>{{address}}<p>
           <p>Note: {{note}}</p>
-        </script>
+        </script> -->
 
         <div class="container">
           <div class="row">

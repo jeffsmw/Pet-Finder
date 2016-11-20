@@ -6,7 +6,7 @@ $(function() {
   imageUpload();
   setup();
   populateMain();
-
+  petSighting();
 });
 
 var setup = function() {
@@ -40,6 +40,14 @@ var populateMain = function() {
   var petList = $('.pet-list');
   // getPet(1);
   getPets();
+};
+
+// Pet sighting show page
+var petSighting = function() {
+  getPet(1);
+  $('#target-sightings').on('submit', function() {
+    getPet(1);
+  });
 };
 
 function getPets () {
