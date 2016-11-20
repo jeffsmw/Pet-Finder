@@ -143,6 +143,10 @@ section#found-pet {
   display: none;
 }
 
+section#show-sighting{
+  display: none;
+}
+
 section#about-us {
   display: none;
 }

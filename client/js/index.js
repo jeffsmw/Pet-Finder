@@ -6,7 +6,7 @@ $(function() {
   imageUpload();
   setup();
   populateMain();
-
+  petSighting();
 });
 
 var setup = function() {
@@ -38,8 +38,16 @@ var setup = function() {
 
 var populateMain = function() {
   var petList = $('.pet-list');
-  // getPet(1);
+  //getPet(1);
   getPets();
+};
+
+// Pet sighting show page
+var petSighting = function() {
+  getPet(1);
+  $('#target-sightings').on('submit', function() {
+    getPet(1);
+  });
 };
 
 function getPets () {
@@ -99,23 +107,24 @@ function renderPet (pet) {
 //
 
 function createPet() {
-$.post(
+  $.post(
   DOMAIN + '/pets.json',
   {
-    type:  type,
-     breed: breed,
-     name:  name,
-     sex:   sex,
-     color:  color,
-     age:   age,
-     date_seen: date_seen,
-     note:  note,
-     images: images,
-     lost:   lost,
-     address: address,
-     longitude: longitude,
-     latitude:  latitude
- });
+    pet_type: pet-type,
+    breed: pet-breed,
+    name:  pet-name,
+    sex:   pet-gender,
+    color:  pet-color,
+    age:   pet-age,
+    date_seen: date-time,
+    note:  notes,
+    images: pet-photos,
+    lost:   true,
+    address: last-seen,
+    longitude: longitude,
+    latitude:  latitude,
+    user_id: current_user
+  });
 }
 //
 // function updatePet (id) {
