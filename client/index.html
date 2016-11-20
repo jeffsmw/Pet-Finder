@@ -194,6 +194,20 @@
       </div>
 
       <div id="main-container">
+        <section class="pet-details"></section>
+        <script id="pet-details" type="x-tmpl-mustache">
+          <h1>Lost Pet</h1>
+          <p>Pet type: {{pet_type}}</p>
+          <p>Breed: {{breed}}</p>
+          <p>Name: {{name}}</p>
+          <p>Sex: {{sex}}</p>
+          <p>Color: {{color}}</p>
+          <p>Age: {{age}}</p>
+          <p>Last Seen: {{date_seen}}</p>
+          <p>{{address}}<p>
+          <p>Note: {{note}}</p>
+        </script>
+
         <div class="container">
           <div class="row">
             <div class="pet-listing">
@@ -211,16 +225,12 @@
                     <p class="card-title col-xs-8">Last Seen</p>
                   </div>
                   <div class="row">
-                    <p class="card-text col-xs-4">{{id}}</p>
-                    <p class="card-text col-xs-8">{{created_at}}</p>
-                    <!-- will not render
-                  </div>
                     <p class="card-text col-xs-4">{{name}}</p>
                     <p class="card-text col-xs-8">{{address}}</p>
+                  </div>
                   <div class="row">
                     <p class="card-text col-xs-4"></p>
                     <p class="card-text col-xs-8">{{date_seen}}</p>
-                    -->
                   </div>
                 </div>
               </div>

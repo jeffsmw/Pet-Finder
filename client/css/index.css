@@ -8,7 +8,7 @@ body {
     display:none;
   }
   div#main-container {
-    margin-left: 0;
+    left: 0;
     top: 50px;
     width:100%;
   }
@@ -51,7 +51,7 @@ body {
 }
 
 .action-container .header .title {
-  
+
 }
 
 .action-container .header {
@@ -158,9 +158,10 @@ section#settings{
 #main-container {
   position: fixed;
   top: 0;
+  left: 300px;
+  right: 0;
   height: 100vh;
   border: 1px solid red;
-  margin-left: 300px;
   overflow-y: auto;
 }
 #main-container div.container {
@@ -181,6 +182,11 @@ section#settings{
   margin: 15px 0;
   background-color: white;
   box-shadow: 2px 2px 5px #AAA;
+
+  /*fixes text from leaving the card*/
+  text-overflow: ellipsis;
+  overflow: hidden;
+  whitespace: no-wrap;
 }
 
 .pet-card .card-img-top {
