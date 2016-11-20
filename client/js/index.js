@@ -1,4 +1,6 @@
-var DOMAIN = "http://localhost:3000";
+// var DOMAIN = "http://localhost:3000";
+var DOMAIN = "https://blooming-cove-82899.herokuapp.com/";
+
 
 $(function() {
   imageUpload();
@@ -32,17 +34,18 @@ var setup = function() {
     $('main').fadeOut(100);
     $('section#welcome-page').fadeIn(100);
   });
-
 };
 
 var populateMain = function() {
   var petList = $('.pet-list');
+  // getPet(1);
   getPets();
 };
 
 function getPets () {
   $.ajax({
-    url: `${DOMAIN}/questions.json`, //<<
+    // url: `${DOMAIN}/pets.json`, //<<
+    url: `${DOMAIN}/pets.json`, //<<
     success: function (pets) {
       renderPets(pets);
     },
@@ -52,7 +55,6 @@ function getPets () {
   });
 }
 
-// render json for list of pets
 function renderPets (pets) {
   var petTemplate = $('#pet-list').html();
   var petList = $('.pet-listing');
@@ -65,6 +67,80 @@ function renderPets (pets) {
   petList.html(petsHTML);
 }
 
+function getPet (id) {
+  $.ajax({
+    url: `${DOMAIN}/pets/${id}.json`,//<<
+    success: function (pet) {
+      renderPet(pet);
+    },
+    error: function () {
+      alert(`Could not find pet with id(${id}), please try again...`)
+    }
+  })
+}
+
+function renderPet (pet) {
+  var petDetailsTmpl = $('#pet-details').html();
+  var petDetails = $('.pet-details');
+
+  petDetails.html(Mustache.render(petDetailsTmpl, pet));
+}
+
+
+// function deletePet (id) {
+//   $.ajax({
+//     url: `${DOMAIN}/pets/${id}.json`,
+//     type: 'DELETE', //<< include error
+//     success: function () {
+//       console.log("good!!");
+//     }
+//   });
+// }
+//
+
+function createPet() {
+$.post(
+  DOMAIN + '/pets.json',
+  {
+    type:  type,
+     breed: breed,
+     name:  name,
+     sex:   sex,
+     color:  color,
+     age:   age,
+     date_seen: date_seen,
+     note:  note,
+     images: images,
+     lost:   lost,
+     address: address,
+     longitude: longitude,
+     latitude:  latitude
+ });
+}
+//
+// function updatePet (id) {
+//   $.ajax({
+//     url: `${DOMAIN}/pets/${id}.json`,
+//     type: 'patch',
+//     data:{'pet[type]': "A", //<< update
+//           'pet[breed]': "B",
+//           'pet[name]': "C",
+//           'pet[sex]': "D",
+//           'pet[color]': "E",
+//           'pet[age]': "F",
+//           'pet[date_seen]': "G",
+//           'pet[note]': "H",
+//           'pet[images]': "I",
+//           'pet[lost]': "J",
+//           'pet[address]': "K",
+//           'pet[longitude]': "L",
+//           'pet[latitude]': "M"
+//          },
+//     success: function () {
+//         // console.log("good!!"); //<< replace
+//     }
+//   });
+// };
 
 // Image uploader function
 function imageUpload () {
@@ -86,12 +162,3 @@ function imageUpload () {
 
   });
 }
-
-
-
-
-
-
-
-
-
