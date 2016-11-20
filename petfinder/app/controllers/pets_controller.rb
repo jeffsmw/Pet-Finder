@@ -3,22 +3,30 @@ class PetsController < ApplicationController
   # before_action :authorize_access, only: [:edit, :update, :destroy]
   before_action :find_pet, only: [:edit, :update, :destroy, :show]
 
-
   def new
     @pet = Pet.new
   end
 
 
   def create
-    @pet = Pet.new pet_params
+    # @pet = Pet.new pet_params
     # @pet.user = current_user
-    @pet.save
-    respond_to do |format|
+
+    pet_attr = params.require(:pet).permit(:address)
+    @pet = Pet.new pet_attr
+
+    if @pet.save
+      redirect_to home_index_path
+    else
+      render :new
+    end
+
+    #respond_to do |format|
       #   format.html { render }
       #   format.text { render }
       #   format.xml  { render xml: @pets }
-      format.json { render json: @pet.to_json }
-    end
+      #format.json { render json: @pet.to_json }
+    #end
 
     # if @pet.facebook_this
     # client = Facebook::REST::Client.new do |config|
@@ -82,20 +90,19 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit([:pet_type,
-                                 :breed,
-                                 :name,
-                                 :sex,
-                                 :color,
-                                 :age,
-                                 :address,
-                                 :date_seen,
-                                 :note,
-                                 :images,
-                                 :lost,
-                                 :longitude,
-                                 :latitude
-                                ])
+    # params.require(:pet).permit([:pet_type,
+    #                              :breed,
+    #                              :name,
+    #                              :sex,
+    #                              :color,
+    #                              :age,
+    #                              :address,
+    #                              :date_seen,
+    #                              :note,
+    #                              :images,
+    #                              :lost,
+    #                             ])
+    params.require(:pet).permit([:address])
   end
 
   def find_pet
