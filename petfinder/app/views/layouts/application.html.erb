@@ -14,106 +14,79 @@
 </head>
 
 <body>
-<div id="mobile-menu">
-</div>
-<%= alert || notice %>
-
-<div id="switch-div">
-  <button type="button" id="switch-view">Switch View</button>
-</div>
-
-<!-- <section id="welcome-page" class="container-fluid">
-  <div class="header row">
-    <div class="banner">
-      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-      <h1>Find My Pet</h1>
-    </div>
+  <div id="mobile-menu">
   </div>
-  <div class="content">
+  <%= alert || notice %>
 
+  <div id="switch-div">
+    <button type="button" id="switch-view">Switch View</button>
   </div>
-</section>
 
-<main>-->
-<div id="test" class="action-container">
-
-
-  <nav>
-    <%= yield %>
-
-    <div id="app-version">
-      Find my pet V.01
-    </div>
-  </nav>
-
-</div>
-
-<div id="main-container">
-
-
-  <% @pets=find_all_pets %>
-  <% @pets.each do |pet| %>
-  <ul>
-    <li><%= pet.pet_type %></li>
-    <li><%= pet.breed %></li>
-    <li><%= pet.name %></li>
-    <li><%= pet.sex %></li>
-    <li><%= pet.color %></li>
-    <li><%= pet.age %></li>
-    <li><%= pet.date_seen %></li>
-    <li><%= pet.note %></li>
-    <li><%= pet.images %></li>
-    <li><%= pet.lost %></li>
-    <li><%= pet.address %></li>
-
-    <li><%= pet.longitude %></li>
-    <li><%= pet.latitude %></li>
-  </ul>
-
-  <% end %>
-
-
-
-
-
-
-
-
-
-
-  <div class="container">
-    <div class="row">
-      <div class="pet-listing">
+  <!-- <section id="welcome-page" class="container-fluid">
+    <div class="header row">
+      <div class="banner">
+        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+        <h1>Find My Pet</h1>
       </div>
     </div>
-  </div>
-</div>
+    <div class="content">
 
-<!--<script id="pet-list">
-  <div class="col-md-6 col-lg-4" data-id={{id}}>
-    <div class="card pet-card">
-      <img class="card-img-top" src="corgi.jpg" alt="Card image caption">
-      <div class="card-block">
-        <div class="card-bottom">
-          <div class="row">
-            <p class="card-title col-xs-4">Name</p>
-            <p class="card-title col-xs-8">Last Seen</p>
+    </div>
+  </section>-->
+
+  <main>
+    <div id="sidebar">
+      <div class="action-container">
+
+
+        <nav>
+          <%= yield %>
+
+          <div id="app-version">
+            Find my pet V.01
           </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <div id="main-container">
+
+      <div id="cards-container">
+        <div class="container">
           <div class="row">
-            <p class="card-text col-xs-4">{{name}}</p>
-            <p class="card-text col-xs-8">{{address}}</p>
-          </div>
-          <div class="row">
-            <p class="card-text col-xs-4"></p>
-            <p class="card-text col-xs-8">{{date_seen}}</p>
+            <div class="pet-listing">
+              <% @pets=find_all_pets %>
+              <% @pets.each do |pet| %>
+                <div class="col-md-6 col-lg-4" data-id={{id}}>
+                  <div class="card pet-card">
+                    <img class="card-img-top" src="corgi.jpg" alt="Card image caption">
+                    <div class="card-block">
+                      <div class="card-bottom">
+                        <div class="row">
+                          <p class="card-title col-xs-4">Name</p>
+                          <p class="card-title col-xs-8">Last Seen</p>
+                        </div>
+                        <div class="row">
+                          <p class="card-text col-xs-4"><%= pet.name %></p>
+                          <p class="card-text col-xs-8"><%= pet.address %></p>
+                        </div>
+                        <div class="row">
+                          <p class="card-text col-xs-4"></p>
+                          <p class="card-text col-xs-8"><%= pet.date_seen %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</script>-->
 
-      <div>
+
+      <div id="map-container">
         <div style='width: 100%; overflow: hidden;'>
           <div id="geolocation" style='width: 75vw; height: 100vh;'></div>
         </div>
@@ -128,7 +101,7 @@
         });
         </script> -->
 
-<!--<script type="text/javascript">
+        <script type="text/javascript">
           var handler = Gmaps.build('Google');
           handler.buildMap({ provider: {styles:
             [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
@@ -182,11 +155,6 @@
                 markers.push(newMarker);
               }
             });
-
-
-
-
-
             ///////////////////////////////
             // old code
             // be aware chrome >= 50 requires https for geolocation to work
@@ -205,13 +173,13 @@
             // //     lng: <%#= @user.longitude %>
             // //   });
             // //   handler.map.centerOn(marker);
-
           });
-
         </script>
+        </div>
       </div>
-    </div> -->
 
-</main>
+    </div>
+
+  </main>
 </body>
 </html>
