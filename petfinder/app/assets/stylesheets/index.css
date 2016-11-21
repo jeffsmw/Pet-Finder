@@ -2,13 +2,14 @@ body {
   display: inline-block;
   font-family: 'Open Sans', sans-serif;
   width:100%;
+  min-width: 300px;
   margin: 0;
   overflow-y: hidden;
 }
 
 @media (max-width:600px){
   .action-container {
-    display:none;
+    display: none;
   }
   div#main-container {
     left: 0;

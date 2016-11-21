@@ -18,8 +18,11 @@
   </div>
   <%= alert || notice %>
 
+  <div id="show-menu-div">
+    <button type="button" class="btn btn-default" id="show-menu"><div id="hamburger-menu">&#9776;</div></button>
+  </div>
   <div id="switch-div">
-    <button type="button" id="switch-view">Switch View</button>
+    <button type="button" class="btn btn-default" id="switch-view"><p id="map-view" style="display:none;">Map View</p><p id="list-view">List View</p></button>
   </div>
 
   <!-- <section id="welcome-page" class="container-fluid">
@@ -51,9 +54,10 @@
     </div>
 
     <div id="main-container">
-
       <div id="cards-container">
+
         <div class="container">
+          <h2>Lost Pets</h2>
           <div class="row">
             <div class="pet-listing">
               <% @pets=find_all_pets %>
@@ -85,12 +89,47 @@
             </div>
           </div>
         </div>
+
+        <div class="container">
+          <h2>Seen and Found Pets</h2>
+          <div class="row">
+            <div class="pet-listing">
+              <% @sightings=find_all_pets %>
+              <% @sightings.each do |pet| %>
+                <div class="col-md-6 col-lg-4" data-id=<%= pet.id %>>
+                  <a href="/pets/<%= pet.id %>">
+                    <div class="card pet-card">
+                      <img class="card-img-top" src="corgi.jpg" alt="Card image caption">
+                      <div class="card-block">
+                        <div class="card-bottom">
+                          <div class="row">
+                            <p class="card-title col-xs-4">Name</p>
+                            <p class="card-title col-xs-8">Last Seen</p>
+                          </div>
+                          <div class="row">
+                            <p class="card-text col-xs-4"><%= pet.name %></p>
+                            <p class="card-text col-xs-8"><%= pet.address %></p>
+                          </div>
+                          <div class="row">
+                            <p class="card-text col-xs-4"></p>
+                            <p class="card-text col-xs-8"><%= pet.date_seen %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
       </div>
 
 
       <div id="map-container">
         <div style='width: 100%; overflow: hidden;'>
-          <div id="geolocation" style='width: 75vw; height: 100vh;'></div>
+          <div id="geolocation" style='width: 75vw; height: 99vh;'></div>
         </div>
 
         <!-- <script type="text/javascript">
@@ -187,7 +226,15 @@
     $('#switch-view').on('click', function() {
       $('#map-container').toggle();
       $('#cards-container').toggle();
+      $('#list-view').toggle();
+      $('#map-view').toggle();
+    });
+
+    $('#show-menu').on('click', function() {
+      console.log('h0i');
+      $('.action-container').show();
     })
+
   </script>
 </body>
 </html>
