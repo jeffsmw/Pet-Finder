@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @user = User.find (session[:user_id]) if user_signed_in?
     @pets = Pet.all
     @hash = Gmaps4rails.build_markers(@pets) do |pet, marker|
       marker.lat pet.latitude
