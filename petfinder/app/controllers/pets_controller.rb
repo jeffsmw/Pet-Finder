@@ -10,22 +10,23 @@ class PetsController < ApplicationController
 
   def create
     # @pet = Pet.new pet_params
-    # @pet.user = current_user
+
 
     # pet_attr = params.require(:pet).permit(:address)
     @pet = Pet.new pet_params
+    @pet.user = current_user
 
     if @pet.save
-      redirect_to home_index_path
+      redirect_to pet_path(@pet)
     else
       render :new
     end
 
     #respond_to do |format|
-      #   format.html { render }
-      #   format.text { render }
-      #   format.xml  { render xml: @pets }
-      #format.json { render json: @pet.to_json }
+    #   format.html { render }
+    #   format.text { render }
+    #   format.xml  { render xml: @pets }
+    #format.json { render json: @pet.to_json }
     #end
 
     # if @pet.facebook_this
@@ -42,10 +43,11 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find params[:id]
+    @user = current_user
     respond_to do |format|
       format.html { render }
       format.text { render }
-      format.xml  { render xml: @pet }
+      format.xml { render xml: @pet }
       format.json { render json: @pet.to_json }
     end
   end
@@ -55,7 +57,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       format.html { render }
       format.text { render }
-      format.xml  { render xml: @pets }
+      format.xml { render xml: @pets }
       format.json { render json: @pets.to_json }
     end
   end
@@ -88,6 +90,32 @@ class PetsController < ApplicationController
     end
   end
 
+  def geo_search
+
+    address=params[:address]
+
+    location = Geocoder.search(address)
+    # lat=location[0].latitude
+    lat=51
+    lon=location[0].longitude
+    range=postion(lat, lon)
+    lat_range=range[0]
+    lat_small=lat_range[0].to_s
+    lat_large=lat_range[1].to_s
+    lon_range=range[1]
+    lon_small=lon_range[0].to_s
+    lon_large=lon_range[1].to_s
+
+    query = "SELECT * FROM pets WHERE longitude BETWEEN "+lon_small+" AND "+lon_large+" and latitude BETWEEN "+lat_small+" AND "+lat_large
+
+
+    @pets = ActiveRecord::Base.connection.execute(query)
+
+
+
+
+  end
+
   private
 
   def pet_params
@@ -108,6 +136,36 @@ class PetsController < ApplicationController
 
   def find_pet
     @pet = Pet.find params[:id]
+  end
+
+  def postion(lat, lon)
+    # Position, decimal degrees
+    # lat = 51.0
+    # lon = 0.0
+
+    # Earth’s radius, sphere
+    r=6378137.0
+
+    # offsets in meters
+    dn = 500.0
+    de = 500.0
+
+    pi=3.1415926
+
+    # Coordinate offsets in radians
+    dLat = dn/r*1.0
+    dLon = de/(r*Math.cos(Math::PI*lat/180))
+
+    # OffsetPosition, decimal degrees
+    lat1 = lat + dLat * 180/Math::PI
+    lat0 = lat - dLat * 180/Math::PI
+
+    lon1 = lon + dLon * 180/Math::PI
+    lon0 = lon - dLon * 180/Math::PI
+
+    [[lat0, lat1], [lon0, lon1]]
+
+
   end
 
 end

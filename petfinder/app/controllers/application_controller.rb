@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def find_all_pets
+    @pets=Pet.all
+
+  end
+  helper_method :find_all_pets
+
 end
