@@ -9,11 +9,28 @@
   </div>
   <div class="container-fluid">
     <%= simple_form_for @sighting, html: { class: 'form-vertical' } do |f| %>
-      <%= f.input :images %>
-      <%= f.input :pet_type %>
-      <%= f.input :address %>
-      <%= f.input :date_seen %>
-      <%= f.input :note %>
+      <div class="">
+        <%= f.input :images %>
+      </div>
+      <div class="">
+        <%= f.label :pet_type %><br />
+        <%= f.select :pet_type, ['Dog', 'Cat'] %>
+      </div>
+      <div class="">
+        <%= f.input :address %>
+      </div>
+      <div class="">
+        <%= f.input :date_seen %>
+      </div>
+
+      <div class="">
+        <%= f.text_area :note %>
+      </div>
+
+      <div class="">
+        <%= f.hidden_field :latitude, class: "lat" %>
+        <%= f.hidden_field :longitude, class: "lng" %>
+      </div>
       <%= f.submit 'Submit', class: 'btn btn-primary' %>
     <% end %>
   </div>
