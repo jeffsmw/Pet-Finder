@@ -1,6 +1,8 @@
 body {
   display: inline-block;
   font-family: 'Open Sans', sans-serif;
+  width:100%;
+  margin: 0;
 }
 
 @media (max-width:600px){
@@ -9,12 +11,19 @@ body {
   }
   div#main-container {
     left: 0;
+    bottom: 0;
     top: 50px;
     width:100%;
+
+  }
+
+  div#geolocation {
+    width: 100vw !important;
   }
   #mobile-menu {
     display: block !important;
   }
+
 }
 
 #mobile-menu {
@@ -26,11 +35,11 @@ body {
 }
 
 .action-container {
-  width:300px;
-  min-width: 300px;
+  /*width:300px;*/
+  width: 25%;
+  /*min-width: 300px;*/
   border-right: 1px solid lightgrey;
   height: 100vh;
-  overflow-y: scroll;
 }
 
 .action-container .header {
@@ -182,8 +191,8 @@ section#signup{
 #main-container {
   position: fixed;
   top: 0;
-  left: 300px;
   right: 0;
+  width:75%;
   height: 100vh;
   border: 1px solid red;
   overflow-y: auto;
