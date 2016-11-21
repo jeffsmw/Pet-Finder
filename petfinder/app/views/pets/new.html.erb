@@ -1,9 +1,6 @@
 <div class="header">
-  <div class="back-button">
-  </div>
-  <div class="title">
-    Create New Pet
-  </div>
+  <div class="back-button"><%= link_to image_tag("icon_back_blue.png"), root_path %></div>
+  <h2>Report your lost pet</h2>
 </div>
 
 <%= simple_form_for @pet do |f| %>
