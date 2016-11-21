@@ -53,9 +53,9 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.order(created_at: :desc)
     respond_to do |format|
-      #   format.html { render }
-      #   format.text { render }
-      #   format.xml  { render xml: @pets }
+      format.html { render }
+      format.text { render }
+      format.xml  { render xml: @pets }
       format.json { render json: @pets.to_json }
     end
   end
