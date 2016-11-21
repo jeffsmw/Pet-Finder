@@ -242,18 +242,18 @@
                   <a href="#">&lt;</a>
                 </div>
                 <div class="title">
-                  Login
+                  Sign Up
                 </div>
               </div>
               <div>
-                <form id="login-form" action="http://localhost:3000/sessions" method="post">
+                <form id="signup-form" action="http://localhost:3000/sessions" method="post">
                   <div>
                     <label>First Name: </label>
-                    <input type="text" id="first_name">
+                    <input type="text" id="signup-first-name">
                   </div>
                   <div>
                     <label>Last Name: </label>
-                    <input type="text" id="last_name">
+                    <input type="text" id="signup-last-name">
                   </div>
                   <div>
                     <label>Email: </label>
@@ -297,13 +297,13 @@
           <p>{{address}}<p>
           <p>Note: {{note}}</p>
         </script> -->
-
         <div class="container">
           <div class="row">
             <div class="pet-listing">
             </div>
           </div>
         </div>
+
         <script id="pet-list" type="x-tmpl-mustache">
           <div class="col-md-6 col-lg-4" data-id={{id}}>
             <div class="card pet-card">
@@ -328,6 +328,7 @@
           </div>
         </script>
       </div>
+
     </main>
 
   </body>

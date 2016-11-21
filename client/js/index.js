@@ -7,6 +7,7 @@ $(function() {
   setup();
   populateMain();
   petSighting();
+  signup();
 });
 
 var setup = function() {
@@ -167,5 +168,17 @@ function imageUpload () {
     $.post(`/${DOMAIN}/pets.json`,{data:formData});
 
 
+  });
+}
+
+function signup() {
+  $.post(
+     `${DOMAIN}/users#create`,
+    {
+      first_name: $('signup-first-name').val(),
+      last_name: $('signup-last-name').val(),
+      email: $('signup-form-email').val(),
+      password: $('signup-form-password').val(),
+      password_confirmation: $('signup-form-confirmation').val()
   });
 }
