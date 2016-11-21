@@ -66,6 +66,17 @@ body {
 
 .action-container .header {
   margin-bottom: 20px;
+  display:flex;
+}
+
+.action-container .back-button {
+  margin: 1.5rem;
+}
+
+.action-container .header h2 {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
 }
 
 .action-container #app-version {
@@ -110,14 +121,7 @@ nav .divider {
   font-weight: 400;
   font-size: xx-small;
 }
-nav .back-button {
-  font-weight: bold;
-  width: 33%;
-}
 
-nav .back-button:hover {
-  color: #FFF;
-}
 
 nav .nav-title {
   position: relative;

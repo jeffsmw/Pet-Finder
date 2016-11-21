@@ -10,13 +10,14 @@ class PetsController < ApplicationController
 
   def create
     # @pet = Pet.new pet_params
-    # @pet.user = current_user
+
 
     # pet_attr = params.require(:pet).permit(:address)
     @pet = Pet.new pet_params
+    @pet.user = current_user
 
     if @pet.save
-      redirect_to home_index_path
+      redirect_to user_path(@pet.user)
     else
       render :new
     end
