@@ -13,8 +13,8 @@
     <div role="presentation" class="nav-title divider">ACCOUNT</div>
     <li role="presentation"><%# link_to "My Report", user_path(@user) %></li>
     <% if user_signed_in? %>
-      <li role="presentation"><a id="messages" href="/users/<%= @user.id %>">My Reports</a></li>
-      <li role="presentation"><a id="messages" href="#">Messages</a></li>
+      <li role="presentation"><a id="reports" href="/users/<%= @user.id %>">My Reports</a></li>
+      <li role="presentation"><a id="messages" href="/messages/new">Messages</a></li>
       <li role="presentation"><a id="settings" href="#">Settings</a></li>
       <li role="presentation"><%= link_to "Log out", sessions_path	, method: :delete %></li>
     <% else  %>
@@ -22,5 +22,6 @@
       <li role="presentation"><a id="signup" href="/users/new">Sign Up</a></li>
     <% end %>
     <li role="presentation"><a id="about-us" href="home/about">About find my pet</a></li>
+
   </ul>
 </section>
