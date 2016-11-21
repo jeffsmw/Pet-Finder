@@ -140,7 +140,7 @@ section#lost-pet{
 }
 
 section#found-pet {
-  display: none;
+  /*display: none;*/
 }
 
 section#show-sighting{
