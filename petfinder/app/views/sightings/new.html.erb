@@ -1,33 +1,30 @@
 <section id="found-pet">
   <div class="header">
-    <div class="back-button">
-      <a href="#">&lt;</a>
-    </div>
-    <div class="title">
-      Found/Sighted Pet
-    </div>
+    <h2>Pet Sighting</h2>
   </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-    <%= form_for(@sighting, html: { class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="content">
+    <h3>Pet details:</h3>
+    <%= form_for(@sighting, html: { class: "form-vertical", role: "form"}) do |f| %>
       <div class="form-group">
-        <%= f.file_field :image, class: 'form-control'%>
+        <%= f.label :images %><br />
+        <%= f.file_field :images %>
       </div>
       <div class="form-group">
         <%= f.label :pet_type %><br />
         <%= f.select :pet_type, ['Dog', 'Cat'] %>
       </div>
       <div class="form-group">
+        <%= f.label :address %><br />
         <%= f.text_field :address %>
       </div>
       <div class="form-group">
+        <%= f.label :date_seen, "Date spotted:" %><br />
         <%= f.date_field :date_seen %>
       </div>
 
       <div class="form-group">
         <%= f.label :note, "Notes" %><br />
-        <%= f.text_area :note %>
+        <%= f.text_area :note, size: "30x5"  %>
         <%= f.hidden_field :latitude, class: "lat" %>
         <%= f.hidden_field :longitude, class: "lng" %>
       </div>
@@ -35,8 +32,6 @@
     <% end %>
 
       </div>
-    <!-- </div>
-  </div> -->
 </section>
 
 

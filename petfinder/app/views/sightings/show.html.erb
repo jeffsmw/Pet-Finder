@@ -10,7 +10,7 @@
     <p>Pet type: <%= @sighting.pet_type %></p>
     <p>Last seen: <%= @sighting.address %></p>
     <p>Date: <%= @sighting.date_seen %></p>
-    <p>Note: <%= @sighting.note %></p>
+    <p>Note: <%= @sighting.note if @sighting.note.present? %></p>
 
   </div>
 
