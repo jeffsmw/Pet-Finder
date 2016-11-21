@@ -6,35 +6,42 @@
     <div class="title">
       Found/Sighted Pet
     </div>
+    <!-- <h2>Pet Sighting</h2> -->
   </div>
-  <div class="container-fluid">
-    <%= simple_form_for @sighting, html: { class: 'form-vertical' } do |f| %>
-      <div class="">
-        <%= f.input :images %>
+  <div class="content">
+    <h3>Pet details:</h3>
+    <%= form_for(@sighting, html: { class: "form-vertical", role: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :images %><br />
+        <%= f.file_field :images %>
       </div>
-      <div class="">
+      <div class="form-group">
         <%= f.label :pet_type %><br />
         <%= f.select :pet_type, ['Dog', 'Cat'] %>
       </div>
-      <div class="">
-        <%= f.input :address %>
+      <div class="form-group">
+        <%= f.label :address %><br />
+        <%= f.text_field :address %>
       </div>
-      <div class="">
-        <%= f.input :date_seen %>
-      </div>
-
-      <div class="">
-        <%= f.text_area :note %>
+      <div class="form-group">
+        <%= f.label :date_seen, "Date spotted:" %><br />
+        <%= f.date_field :date_seen %>
       </div>
 
-      <div class="">
+      <div class="form-group">
+        <%= f.label :note, "Notes" %><br />
+        <%= f.text_area :note, size: "30x5"  %>
         <%= f.hidden_field :latitude, class: "lat" %>
         <%= f.hidden_field :longitude, class: "lng" %>
       </div>
       <%= f.submit 'Submit', class: 'btn btn-primary' %>
     <% end %>
-  </div>
+
+      </div>
 </section>
+
+
+
 
     <!-- <form id="target-sightings" action="http://localhost:3000/sightings" method="post" enctype="multipart/form-data">
       <div class="form-group col-xs-12">
