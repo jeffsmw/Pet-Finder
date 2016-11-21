@@ -8,33 +8,39 @@
     </div>
   </div>
   <div class="container-fluid">
-    <%= simple_form_for @sighting, html: { class: 'form-vertical' } do |f| %>
-      <div class="">
-        <%= f.input :images %>
+    <div class="row">
+      <div class="col-xs-12">
+    <%= form_for(@sighting, html: { class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.file_field :image, class: 'form-control'%>
       </div>
-      <div class="">
+      <div class="form-group">
         <%= f.label :pet_type %><br />
         <%= f.select :pet_type, ['Dog', 'Cat'] %>
       </div>
-      <div class="">
-        <%= f.input :address %>
+      <div class="form-group">
+        <%= f.text_field :address %>
       </div>
-      <div class="">
-        <%= f.input :date_seen %>
+      <div class="form-group">
+        <%= f.date_field :date_seen %>
       </div>
 
-      <div class="">
+      <div class="form-group">
+        <%= f.label :note, "Notes" %><br />
         <%= f.text_area :note %>
-      </div>
-
-      <div class="">
         <%= f.hidden_field :latitude, class: "lat" %>
         <%= f.hidden_field :longitude, class: "lng" %>
       </div>
       <%= f.submit 'Submit', class: 'btn btn-primary' %>
     <% end %>
-  </div>
+
+      </div>
+    <!-- </div>
+  </div> -->
 </section>
+
+
+
 
     <!-- <form id="target-sightings" action="http://localhost:3000/sightings" method="post" enctype="multipart/form-data">
       <div class="form-group col-xs-12">
