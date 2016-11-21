@@ -1,4 +1,5 @@
 $(function(){
+  console.log('okay');
   $('#switch-view').on('click', function() {
     $('#map-container').toggle();
     $('#cards-container').toggle();

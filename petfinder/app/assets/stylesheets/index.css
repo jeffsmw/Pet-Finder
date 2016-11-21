@@ -65,7 +65,7 @@ body {
 }
 
 .action-container .header {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 
 .action-container #app-version {
@@ -79,9 +79,9 @@ body {
 }
 
 .action-container .content {
-  padding: 20px;
-
+  /*padding: 20px;*/
 }
+
 
 .action-container .content ul {
   margin: 0px;
@@ -110,11 +110,13 @@ nav .divider {
   font-weight: 400;
   font-size: xx-small;
 }
-nav .back-button {
+nav .ton {
   font-weight: bold;
   width: 33%;
 }
-
+nav .back-button{
+  text-decoration: none;
+}
 nav .back-button:hover {
   color: #FFF;
 }
@@ -253,4 +255,24 @@ section#signup{
   text-align: left;
   font-size: small;
   word-wrap: break-word;
+}
+
+#show-container {
+  padding: 20px;
+}
+#show-container .show-title {
+  color: #5bc0de;
+  font-size: small;
+  margin-bottom: 0;
+}
+#show-container  .show-body {
+  font-weight: 400;
+}
+.show-image {
+  object-fit: cover;
+  width:100%;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

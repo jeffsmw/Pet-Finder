@@ -58,26 +58,28 @@
             <div class="pet-listing">
               <% @pets=find_all_pets %>
               <% @pets.each do |pet| %>
-                <div class="col-md-6 col-lg-4" data-id={{id}}>
-                  <div class="card pet-card">
-                    <img class="card-img-top" src="corgi.jpg" alt="Card image caption">
-                    <div class="card-block">
-                      <div class="card-bottom">
-                        <div class="row">
-                          <p class="card-title col-xs-4">Name</p>
-                          <p class="card-title col-xs-8">Last Seen</p>
-                        </div>
-                        <div class="row">
-                          <p class="card-text col-xs-4"><%= pet.name %></p>
-                          <p class="card-text col-xs-8"><%= pet.address %></p>
-                        </div>
-                        <div class="row">
-                          <p class="card-text col-xs-4"></p>
-                          <p class="card-text col-xs-8"><%= pet.date_seen %></p>
+                <div class="col-md-6 col-lg-4" data-id=<%= pet.id %>>
+                  <a href="/pets/<%= pet.id %>">
+                    <div class="card pet-card">
+                      <img class="card-img-top" src="corgi.jpg" alt="Card image caption">
+                      <div class="card-block">
+                        <div class="card-bottom">
+                          <div class="row">
+                            <p class="card-title col-xs-4">Name</p>
+                            <p class="card-title col-xs-8">Last Seen</p>
+                          </div>
+                          <div class="row">
+                            <p class="card-text col-xs-4"><%= pet.name %></p>
+                            <p class="card-text col-xs-8"><%= pet.address %></p>
+                          </div>
+                          <div class="row">
+                            <p class="card-text col-xs-4"></p>
+                            <p class="card-text col-xs-8"><%= pet.date_seen %></p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               <% end %>
             </div>

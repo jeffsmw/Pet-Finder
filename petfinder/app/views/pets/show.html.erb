@@ -1,21 +1,52 @@
-<div>
-  <h1><%= @pet.name %></h1>
-  <h3>
-    <%= @pet.color %> <%= @pet.sex %> <%= @pet.pet_type %>
-  </h3>
-  <h4>
-    <% if @pet.age.present? %>
-      <%= @pet.age %> years old
-    <% else %>
-      Age not provided
-    <% end %>
-  </h4>
-
-  <p>
-    <% if @pet.note.present? %>
-      <%= @pet.note %>
-    <% end %>
-  </p>
-
-  <p>Last seen at: <%= @pet.latitude %>N, <%= @pet.longitude %>W</p>
-</div>
+<section>
+  <div class="header">
+    <div class="title"><a class="back-button" href="/">&lt;</a> Pet Sighting</div>
+  </div>
+  <div class="content">
+    <img class="show-image" src="corgi.jpg" alt="Image">
+    <div id="show-container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="show-title">Pet Type</p>
+          <p class="show-body"><%= @pet.pet_type %></p>
+        </div>
+        <div class="col-md-6">
+          <p class="show-title">Breed</p>
+          <p class="show-body"><%= @pet.breed %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="show-title">Name</p>
+          <p class="show-body"><%= @pet.name %></p>
+        </div>
+        <div class="col-md-6">
+          <p class="show-title">Sex</p>
+          <p class="show-body"><%= @pet.sex %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="show-title">Color</p>
+          <p class="show-body"><%= @pet.color %></p>
+        </div>
+        <div class="col-md-6">
+          <p class="show-title">Age</p>
+          <p class="show-body"><%= @pet.age %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="show-title">Last Seen</p>
+          <p class="show-body"><%= @pet.address %></p>
+          <p class="show-body"><%= @pet.date_seen %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="show-title">Note</p>
+          <p class="show-body"><%= @pet.note %></p>
+        </div>
+      </div>
+    </div>
+</section>
