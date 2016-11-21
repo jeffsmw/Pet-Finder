@@ -7,4 +7,8 @@ class Sighting < ApplicationRecord
   # after_validation: :geocode
   mount_uploader :images, UserImageUploader
 
+  validates :pet_type, presence: true
+  validates :date_seen, presence: true
+  validates :address, presence: true
+
 end

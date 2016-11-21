@@ -1,6 +1,9 @@
 body {
   display: inline-block;
   font-family: 'Open Sans', sans-serif;
+  width:100%;
+  margin: 0;
+  overflow-y: hidden;
 }
 
 @media (max-width:600px){
@@ -9,12 +12,18 @@ body {
   }
   div#main-container {
     left: 0;
+    bottom: 0;
     top: 50px;
     width:100%;
+  }
+
+  div#geolocation {
+    width: 100vw !important;
   }
   #mobile-menu {
     display: block !important;
   }
+
 }
 
 #mobile-menu {
@@ -25,12 +34,17 @@ body {
   height: 50px;
 }
 
+#sidebar {
+  width: 25vw;
+  overflow-y: auto;
+}
 .action-container {
-  width:300px;
-  min-width: 300px;
+  /*width:300px;*/
+  width: 100%;
+  /*min-width: 300px;*/
   border-right: 1px solid lightgrey;
   height: 100vh;
-  overflow-y: scroll;
+  max-height: 100vh;
 }
 
 .action-container .header {
@@ -45,18 +59,19 @@ body {
 
 .action-container .header {
   /*background-color: #1EAFF9;*/
-  background-color: #e7f2fd;
+  /*background-color: #e7f2fd;*/
   /*color: #fff;*/
   color: #000;
 }
 
-.action-container .header .title {
-
-}
-
 .action-container .header {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
+
+.action-container .back-button {
+  margin: 1.5rem;
+}
+
 
 .action-container #app-version {
   display: flex;
@@ -65,7 +80,19 @@ body {
   font-size: small;
   font-weight: 100;
   color:#ccc;
+  margin-top: 20px;
 }
+
+.action-container .content {
+  /*padding: 20px;*/
+}
+
+
+.action-container .content ul {
+  margin: 0px;
+
+}
+
 
 section#home div.header {
   margin-bottom: 0;
@@ -79,7 +106,13 @@ section#home ul li:not(:last-child){
 
 }
 nav .header .title {
-  width: 33%;
+  font-weight: 500;
+  font-size: medium;
+}
+
+.title {
+  font-weight: 500;
+  font-size: medium;
 }
 
 nav .divider {
@@ -88,11 +121,14 @@ nav .divider {
   font-weight: 400;
   font-size: xx-small;
 }
-nav .back-button {
+
+nav .ton {
   font-weight: bold;
   width: 33%;
 }
-
+nav .back-button{
+  text-decoration: none;
+}
 nav .back-button:hover {
   color: #FFF;
 }
@@ -170,17 +206,20 @@ section#signup{
 #main-container {
   position: fixed;
   top: 0;
-  left: 300px;
   right: 0;
+  width:75%;
   height: 100vh;
   border: 1px solid red;
   overflow-y: auto;
+  background-color: #EBF1F5;
 }
 #main-container div.container {
   width: 100%;
-  background-color: #EBF1F5;
 }
 
+#cards-container {
+  display:none;
+}
 .pet-listing li {
   list-style-type: none;
   display: flex;
@@ -228,4 +267,53 @@ section#signup{
   text-align: left;
   font-size: small;
   word-wrap: break-word;
+}
+
+#show-container {
+  padding: 20px;
+}
+#show-container .show-title {
+  color: #5bc0de;
+  font-size: small;
+  margin-bottom: 0;
+}
+#show-container  .show-body {
+  font-weight: 400;
+}
+.show-image {
+  object-fit: cover;
+  width:100%;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#signup-container{
+  margin: 20px;
+}
+#report-lost-container{
+  margin: 20px;
+}
+#sighting-container{
+  width: 100%;
+  margin: 20px;
+}
+#about-container {
+  margin: 20px;
+}
+
+.user-report {
+  background-color: #eee;
+  padding: 5px;
+  font-weight: 300;
+  font-size: small;
+}
+
+.user-report-pet {
+  border-bottom: 1px solid lightgrey;
+
+}
+.user-report-pet a {
+    color: inherit;
 }
