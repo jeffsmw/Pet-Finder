@@ -18,6 +18,15 @@
     </div>
     <%= alert || notice %>
 
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
     <div id="switch-div">
       <button type="button" id="switch-view">Switch View</button>
     </div>
@@ -100,41 +109,43 @@
         <!-- <script type="text/javascript">
         var handler = Gmaps.build('Google');
         handler.buildMap({ internal: {id: 'geolocation'}}, function(){
-        var marker = handler.addMarkers(<%=raw @hash.to_json %>);
+        // var marker = handler.addMarkers(<%=raw @hash.to_json %>);
         // handler.bounds.extendWith(markers);
         // handler.fitMapToBounds();
-        navigator.geolocation.getCurrentPosition(handler.map.centerOn(marker));
+        navigator.geolocation.getCurrentPosition(displayOnMap);
         });
         </script> -->
 
-        <script type="text/javascript">
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ provider: {styles:
-            [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
-            }, internal: {id: 'geolocation'} }, function(){
-            var markers = <%= @arr %>;
-            //<%=raw @hash.to_json %>;
-            markers.options = {
-              geodesic: true,
-              strokeColor: '#00ff00',
-              strokeOpacity: 1.0,
-              strokeWeight: 2
+        <%# if user_signed_in? %>
+          <script type="text/javascript">
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {styles:
+              [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
+              }, internal: {id: 'geolocation'} }, function(){
+              ///////////////////////////////
+              // old code
+              // be aware chrome >= 50 requires https for geolocation to work
+              if(navigator.geolocation)
+                navigator.geolocation.getCurrentPosition(displayOnMap);
+              }
+            );
+            // function displayOnMap(position){
+            //   var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            //   handler.bounds.extendWith(markers);
+            //   handler.fitMapToBounds();
+            //   handler.getMap().setZoom(15);
+            // };
+            function displayOnMap(position){
+              var marker = handler.addMarker({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              });
+              handler.map.centerOn(marker);
+              handler.fitMapToBounds();
+              handler.getMap().setZoom(15);
             };
 
-            function addPolyline(line){
-              var transformedline = _.map(line, function(coordinates){
-                return { lat: coordinates[0], lng: coordinates[1] };
-              })
-              handler.addPolyline(transformedline, line.options);
-              handler.bounds.extend(transformedline[0]);
-              handler.bounds.extend(line[ line.length - 1]);
-            }
-
-            addPolyline(markers);
-            handler.addMarkers(<%=raw @hash.to_json %>);
-            handler.fitMapToBounds();
-            handler.getMap().setZoom(15);
-
+            var markers = [];
             var counter = 0;
             google.maps.event.addListener(handler.getMap(), 'click', function(object){
               // console.log(object.latLng.lat())
@@ -159,35 +170,72 @@
                   "lng": object.latLng.lng(),
                 });
                 markers.push(newMarker);
+                console.log(newMarker);
               }
             });
 
 
+            // var handler = Gmaps.build('Google');
+            // handler.buildMap({ provider: {styles:
+            //   [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
+            //   }, internal: {id: 'geolocation'} }, function(){
+            /////////////////////////////////////
+            // newer
 
-
-
-            ///////////////////////////////
-            // old code
-            // be aware chrome >= 50 requires https for geolocation to work
-            // if(navigator.geolocation)
-            //   navigator.geolocation.getCurrentPosition(displayOnMap);
-            // });
-            // function displayOnMap(position){
-            //   var markers = handler.addMarkers(<%=raw @hash.to_json %>);
-            //   handler.bounds.extendWith(markers);
-            //   handler.fitMapToBounds();
-            //   handler.getMap().setZoom(15);
+            // var markers = <%= @arr %>;
+            // //<%=raw @hash.to_json %>;
+            // markers.options = {
+            //   geodesic: true,
+            //   strokeColor: '#00ff00',
+            //   strokeOpacity: 1.0,
+            //   strokeWeight: 2
             // };
-            // // function displayOnMap(position){
-            // //   var marker = handler.addMarker({
-            // //     lat: <%#= @user.latitude %>,
-            // //     lng: <%#= @user.longitude %>
-            // //   });
-            // //   handler.map.centerOn(marker);
+            //
+            // function addPolyline(line){
+            //   var transformedline = _.map(line, function(coordinates){
+            //     return { lat: coordinates[0], lng: coordinates[1] };
+            //   })
+            //   handler.addPolyline(transformedline, line.options);
+            //   handler.bounds.extend(transformedline[0]);
+            //   handler.bounds.extend(line[ line.length - 1]);
+            // }
+            //
+            // addPolyline(markers);
+            // handler.addMarkers(<%=raw @hash.to_json %>);
+            // handler.fitMapToBounds();
+            // handler.getMap().setZoom(15);
+            //
+            // var counter = 0;
+            // google.maps.event.addListener(handler.getMap(), 'click', function(object){
+            //   // console.log(object.latLng.lat())
+            //   // console.log(object.latLng.lng())
+            //   if (counter < 1){
+            //     // var marker = new google.maps.Marker({
+            //     //   position: object.latLng,
+            //     //   map: handler.getMap()
+            //     // });
+            //     var marker = handler.addMarker({
+            //       "lat": object.latLng.lat(),
+            //       "lng": object.latLng.lng(),
+            //     });
+            //     markers.push(marker);
+            //     counter++;
+            //   }else{
+            //     var marker = markers.pop();
+            //     handler.removeMarker(marker);
+            //
+            //     var newMarker = handler.addMarker({
+            //       "lat": object.latLng.lat(),
+            //       "lng": object.latLng.lng(),
+            //     });
+            //     markers.push(newMarker);
+            //   }
+            // });
 
-          });
+          // });
 
-        </script>
+          </script>
+        <%# end %>
       </div>
     </div>
 
