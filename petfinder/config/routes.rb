@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'home/about' => 'home#about'
+  post '/pets/search', to: 'pets#geo_search'
+
   resources :users
   resources :sessions, only:[:new,:create] do
     delete :destroy, on: :collection
