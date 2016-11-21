@@ -32,9 +32,9 @@
 
     <%= f.label :date_seen %>
     <%= f.datetime_select :date_seen %>
-
     <%= f.input :note %>
-    <%= file_field_tag('item_attached_assets_asset', multiple: true, name: "item[attached_assets_attributes][][asset]") %>
+    <%# file_field_tag('item_attached_assets_asset', multiple: true, name: "item[attached_assets_attributes][][asset]") %>
+    <%= f.input :images %>
   </div>
 
   <div>
