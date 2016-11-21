@@ -163,6 +163,10 @@ section#login{
   display: none;
 }
 
+section#signup{
+  display: none;
+}
+
 #main-container {
   position: fixed;
   top: 0;
