@@ -219,7 +219,7 @@ section#signup{
   right: 0;
   width:75%;
   height: 100vh;
-  border: 1px solid red;
+  border: 1px solid #0084b4;
   overflow-y: auto;
   background-color: #EBF1F5;
 }
