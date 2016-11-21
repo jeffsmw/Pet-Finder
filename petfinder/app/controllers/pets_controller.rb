@@ -41,10 +41,11 @@ class PetsController < ApplicationController
 
 
   def show
+    @pet = Pet.find params[:id]
     respond_to do |format|
-      #   format.html { render }
-      #   format.text { render }
-      #   format.xml  { render xml: @pet }
+      format.html { render }
+      format.text { render }
+      format.xml  { render xml: @pet }
       format.json { render json: @pet.to_json }
     end
   end
