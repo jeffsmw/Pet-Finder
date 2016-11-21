@@ -24,8 +24,12 @@ class ApplicationController < ActionController::Base
 
   def find_all_pets
     @pets=Pet.all
-
   end
   helper_method :find_all_pets
+
+  def find_all_sightings
+    @sightings=Sighting.all
+  end
+  helper_method :find_all_sightings
 
 end

@@ -94,7 +94,7 @@
           <h2>Seen and Found Pets</h2>
           <div class="row">
             <div class="pet-listing">
-              <% @sightings=find_all_pets %>
+              <% @sightings=find_all_sightings %>
               <% @sightings.each do |pet| %>
                 <div class="col-md-6 col-lg-4" data-id=<%= pet.id %>>
                   <a href="/pets/<%= pet.id %>">
@@ -103,11 +103,11 @@
                       <div class="card-block">
                         <div class="card-bottom">
                           <div class="row">
-                            <p class="card-title col-xs-4">Name</p>
+                            <p class="card-title col-xs-4">Type</p>
                             <p class="card-title col-xs-8">Last Seen</p>
                           </div>
                           <div class="row">
-                            <p class="card-text col-xs-4"><%= pet.name %></p>
+                            <p class="card-text col-xs-4"><%= pet.pet_type %></p>
                             <p class="card-text col-xs-8"><%= pet.address %></p>
                           </div>
                           <div class="row">
