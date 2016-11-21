@@ -12,4 +12,5 @@
  *
  *= require_tree .
  *= require_self
+ *= rel jquery-3.1.1
  */
