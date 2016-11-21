@@ -12,8 +12,8 @@ class PetsController < ApplicationController
     # @pet = Pet.new pet_params
     # @pet.user = current_user
 
-    pet_attr = params.require(:pet).permit(:address)
-    @pet = Pet.new pet_attr
+    # pet_attr = params.require(:pet).permit(:address)
+    @pet = Pet.new pet_params
 
     if @pet.save
       redirect_to home_index_path
@@ -53,9 +53,9 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.order(created_at: :desc)
     respond_to do |format|
-      #   format.html { render }
-      #   format.text { render }
-      #   format.xml  { render xml: @pets }
+      format.html { render }
+      format.text { render }
+      format.xml  { render xml: @pets }
       format.json { render json: @pets.to_json }
     end
   end
@@ -91,19 +91,19 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    # params.require(:pet).permit([:pet_type,
-    #                              :breed,
-    #                              :name,
-    #                              :sex,
-    #                              :color,
-    #                              :age,
-    #                              :address,
-    #                              :date_seen,
-    #                              :note,
-    #                              :images,
-    #                              :lost,
-    #                             ])
-    params.require(:pet).permit([:address])
+    params.require(:pet).permit([:pet_type,
+                                 :breed,
+                                 :name,
+                                 :sex,
+                                 :color,
+                                 :age,
+                                 :address,
+                                 :date_seen,
+                                 :note,
+                                 :images,
+                                 :lost,
+                                ])
+    # params.require(:pet).permit([:address])
   end
 
   def find_pet

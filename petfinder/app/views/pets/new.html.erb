@@ -1,4 +1,10 @@
-<h1>Create new pet</h1>
+<div class="header">
+  <div class="back-button">
+  </div>
+  <div class="title">
+    Create New Pet
+  </div>
+</div>
 
 <%= simple_form_for @pet do |f| %>
   <div>
@@ -23,8 +29,10 @@
 
   <div>
     <%= f.input :age, as: :numeric %>
-    <%= f.input :address %>
+
+    <%= f.label :date_seen %>
     <%= f.datetime_select :date_seen %>
+
     <%= f.input :note %>
     <%= file_field_tag('item_attached_assets_asset', multiple: true, name: "item[attached_assets_attributes][][asset]") %>
   </div>
