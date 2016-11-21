@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     # post '/contact_submit' => 'home#contact_submit'
 
   root 'home#index'
+  post '/pets/search', to: 'pets#geo_search'
+
   resources :users
   resources :sessions, only:[:new,:create] do
     delete :destroy, on: :collection
