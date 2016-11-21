@@ -1,6 +1,12 @@
 <section>
   <div class="header">
-    <div class="title"><a class="back-button" href="/">&lt;</a> Pet Sighting</div>
+    <div class="title">
+      <% if user_signed_in? %>
+        <a class="back-button" href="/users/<%= @user.id %>">&lt;</a>
+      <% else %>
+        <a class="back-button" href="/">&lt;</a>
+      <% end %>
+      Lost Pet</div>
   </div>
   <div class="content">
     <img class="show-image" src="corgi.jpg" alt="Image">

@@ -1,13 +1,3 @@
-$(function(){
-  console.log('okay');
-  $('#switch-view').on('click', function() {
-    $('#map-container').toggle();
-    $('#cards-container').toggle();
-  })
-});
-
-
-
 // // var DOMAIN = "http://localhost:3000";
 // var DOMAIN = "https://blooming-cove-82899.herokuapp.com/";
 //

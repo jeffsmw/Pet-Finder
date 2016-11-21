@@ -17,7 +17,7 @@ class PetsController < ApplicationController
     @pet.user = current_user
 
     if @pet.save
-      redirect_to user_path(@pet.user)
+      redirect_to pet_path(@pet)
     else
       render :new
     end
@@ -43,6 +43,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find params[:id]
+    @user = current_user
     respond_to do |format|
       format.html { render }
       format.text { render }

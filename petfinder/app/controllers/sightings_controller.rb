@@ -10,7 +10,8 @@ class SightingsController < ApplicationController
 
   #  http://localhost:3000/sightings/1.json
   def show
-    render json: @sighting.to_json
+    @sighting = Sighting.find params[:id]
+    @user = current_user
 
   end
 
@@ -41,7 +42,7 @@ class SightingsController < ApplicationController
         # format.html { redirect_to @sighting, notice: 'Sighting was successfully created.' }
 
         # format.json { render :show, status: :created, location: @tutor }
-        redirect_to user_path(@sighting.user)
+        redirect_to sighting_path(@sighting)
         # format.html { render :new }
         # format.json { render json: @sighting.errors }
       end

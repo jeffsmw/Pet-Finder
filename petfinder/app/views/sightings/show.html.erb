@@ -1,17 +1,39 @@
-<section id="show-sighting">
+<section>
   <div class="header">
-    <div class="back-button">
-      <a href="#">&lt;</a>
-    </div>
-    <h2>Pet Sighting</h2>
+    <div class="title">
+      <% if user_signed_in? %>
+        <a class="back-button" href="/users/<%= @user.id %>">&lt;</a>
+      <% else %>
+        <a class="back-button" href="/">&lt;</a>
+      <% end %>
+      Pet Sighting</div>
   </div>
   <div class="content">
-
-    <p>Pet type: <%= @sighting.pet_type %></p>
-    <p>Last seen: <%= @sighting.address %></p>
-    <p>Date: <%= @sighting.date_seen %></p>
-    <p>Note: <%= @sighting.note if @sighting.note.present? %></p>
-
-  </div>
-
+    <img class="show-image" src="corgi.jpg" alt="Image">
+    <div id="show-container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="show-title">Pet Type</p>
+          <p class="show-body"><%= @sighting.pet_type %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="show-title">Last Seen at</p>
+          <p class="show-body"><%= @sighting.address %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="show-title">Date + Time</p>
+          <p class="show-body"><%= @sighting.date_seen %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="show-title">Note</p>
+          <p class="show-body"><%= @sighting.note %></p>
+        </div>
+      </div>
+    </div>
 </section>

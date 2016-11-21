@@ -59,7 +59,7 @@ body {
 
 .action-container .header {
   /*background-color: #1EAFF9;*/
-  background-color: #e7f2fd;
+  /*background-color: #e7f2fd;*/
   /*color: #fff;*/
   color: #000;
 }
@@ -106,7 +106,13 @@ section#home ul li:not(:last-child){
 
 }
 nav .header .title {
-  width: 33%;
+  font-weight: 500;
+  font-size: medium;
+}
+
+.title {
+  font-weight: 500;
+  font-size: medium;
 }
 
 nav .divider {
@@ -205,10 +211,10 @@ section#signup{
   height: 100vh;
   border: 1px solid red;
   overflow-y: auto;
+  background-color: #EBF1F5;
 }
 #main-container div.container {
   width: 100%;
-  background-color: #EBF1F5;
 }
 
 #cards-container {
@@ -281,4 +287,33 @@ section#signup{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#signup-container{
+  margin: 20px;
+}
+#report-lost-container{
+  margin: 20px;
+}
+#sighting-container{
+  width: 100%;
+  margin: 20px;
+}
+#about-container {
+  margin: 20px;
+}
+
+.user-report {
+  background-color: #eee;
+  padding: 5px;
+  font-weight: 300;
+  font-size: small;
+}
+
+.user-report-pet {
+  border-bottom: 1px solid lightgrey;
+
+}
+.user-report-pet a {
+    color: inherit;
 }

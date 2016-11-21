@@ -1,43 +1,46 @@
 <%# image_tag @user.image.url(:large) if @user.image.present? %>
 <div class="header">
   <div class="back-button">
-    <a href="http://localhost:3000">&lt;</a>
+    <a href="/">&lt;</a>
   </div>
   <div class="title">
     MY REPORT
   </div>
 </div>
-<div class="well well-sm">
+<div class="user-report">
   <font color="grey">Lost Pet</font>
 </div>
 <% @user.pets.each do |p| %>
-<div class="well well-lg">
-  <div class="row">
-    <div class="col-xs-3">
-      <%= image_tag p.images.url(:medium) if p.images.present? %>
-    </div>
-    <div class="col-xs-8">
-      <div class="post-title">
-        <font color="blue">Name: <%= link_to p.name, pet_path(p) %></font>
+  <div class="user-report-pet">
+    <div class="row">
+      <a href="/pets/<%= p.id %>">
+      <div class="col-xs-3">
+        <%= image_tag p.images.url(:medium) if p.images.present? %>
       </div>
-      <div class="post-title">
-        <font color="blue">Last Seen Location</font>
+      <div class="col-xs-8">
+        <div class="post-title">
+          <font color="blue">Name: <%= p.name %></font>
+        </div>
+        <div class="post-title">
+          <font color="blue">Last Seen Location</font>
+        </div>
+        <div class="post-body">
+          <%= p.address %>
+          <%= p.date_seen %>
+        </div>
       </div>
-      <div class="post-body">
-        <%= p.address %>
-        <%= p.date_seen %>
-      </div>
+      </a>
     </div>
   </div>
-</div>
 <% end %>
 
-<div class="well well-sm">
+<div class="user-report">
   <font color="grey">Found Pet</font>
 </div>
 <% @user.sightings.each do |p| %>
-  <div class="well well-lg">
+  <div class="user-report-pet">
     <div class="row">
+      <a href="/sightings/<%= p.id %>">
       <div class="col-xs-3">
         <%= image_tag p.images.url(:medium) if p.images.present? %>
       </div>
@@ -50,6 +53,7 @@
           <%= p.date_seen %>
         </div>
       </div>
+      </a>
     </div>
   </div>
 <% end %>
