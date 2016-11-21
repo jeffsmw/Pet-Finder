@@ -68,6 +68,11 @@ body {
   /*margin-bottom: 20px;*/
 }
 
+.action-container .back-button {
+  margin: 1.5rem;
+}
+
+
 .action-container #app-version {
   display: flex;
   justify-content: center;
@@ -110,6 +115,7 @@ nav .divider {
   font-weight: 400;
   font-size: xx-small;
 }
+<<<<<<< HEAD
 nav .ton {
   font-weight: bold;
   width: 33%;
@@ -120,6 +126,9 @@ nav .back-button{
 nav .back-button:hover {
   color: #FFF;
 }
+=======
+
+>>>>>>> 618ec7ca63e5e0f07e27129adc2fbc56fd89c579
 
 nav .nav-title {
   position: relative;

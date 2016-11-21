@@ -26,13 +26,12 @@ class SightingsController < ApplicationController
   #http://localhost:3000/sightings.json?sighting[pet_type]=123
   def create
 
-    session[:user_id]='adasd'
-    byebug
+    # session[:user_id]='adasd'
     # @user_id=params[:user_id]
     @sighting = Sighting.new(sighting_params)
-    # @sighting.user=User.find(@user_id)
+    @sighting.user=current_user
 
-    respond_to do |format|
+    # respond_to do |format|
       if @sighting.save
 
         # if user_sign_in?
@@ -42,12 +41,11 @@ class SightingsController < ApplicationController
         # format.html { redirect_to @sighting, notice: 'Sighting was successfully created.' }
 
         # format.json { render :show, status: :created, location: @tutor }
-        format.json { render json: @sighting }
-      else
+        redirect_to user_path(@sighting.user)
         # format.html { render :new }
-        format.json { render json: @sighting.errors }
+        # format.json { render json: @sighting.errors }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /tutors/1
@@ -106,6 +104,3 @@ class SightingsController < ApplicationController
     )
   end
 end
-
-
-
