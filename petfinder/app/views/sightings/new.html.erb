@@ -7,24 +7,32 @@
       Found/Sighted Pet
     </div>
   </div>
-  <div class="container-fluid">
-    <%= simple_form_for @sighting, html: { class: 'form-vertical' } do |f| %>
-      <div class="">
-        <%= f.input :images %>
+  <div class="row">
+    <div class= "col-xs-12">
+    <%= form_for(@sighting, html: {class: "form-vertical", role: "form" }) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-sm-8">
+        <%= f.label :images %>
+        <%= f.file_field :images, class: 'form-control' %>
       </div>
-      <div class="">
-        <%= f.label :pet_type %><br />
+        <div class= "control-label col-sm-8">
+        <%= f.label :pet_type %><br/>
         <%= f.select :pet_type, ['Dog', 'Cat'] %>
       </div>
-      <div class="">
-        <%= f.input :address %>
-      </div>
-      <div class="">
-        <%= f.input :date_seen %>
+      <div class="form-group">
+        <div class="control-label col-sm-8">
+          <%= f.label :address, class: "form-control", placeholder: "Address" %>
+        </div>
+      <div class="form_group">
+        <div class="control-label col-sm-2">
+          <%= f.label :body %>
+        </div>
+        <div class="col-sm-8">
+        <%= f.label :date_seen %>
       </div>
 
-      <div class="">
-        <%= f.text_area :note %>
+      <div class="col-sm-8">
+        <%= f.text_area :note, rows: 8, class: "form-control", placeholder: "Body of Post" %>
       </div>
 
       <div class="">
