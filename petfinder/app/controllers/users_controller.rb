@@ -4,42 +4,38 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit([:first_name,
-                                                :last_name,
-                                                :email,
-                                                :password,
-                                                :password_confirmation,
-                                                :image,
-                                                :city])
     @user = User.new user_params
 
-    respond_to do |format|
+    # respond_to do |format|
       if @user.save
-        PetMailer.notify_pet_owner(@user).deliver_now
+        # PetMailer.notify_pet_owner(@user).deliver_now
         # render json: @user.to_json
         # session[:user_id] = @user.id
-        format.js { render :success}
-        format.html{
-          redirect_to user_path(@user)
-        }
+        # format.js { render :success}
+        # format.html{
+        #   redirect_to root_path
+        # }
+        session[:user_id] = @user.id
+        redirect_to root_path
       else
-        format.js { render :fail }
-        format.html{
-          render 'users/new'
-         }
+        # format.js { render :fail }
+        # format.html{
+        #   render 'users/new'
+        #  }
+        render :new
       end
-    end
+    # end
   end
 
   def show
     @user = User.find params[:id]
     # render json: @user.to_json
-    respond_to do |format|
-      format.html { render }
-      format.text { render }
-      format.xml { render xml: @user }
-      format.json { render json: @user.to_json }
-    end
+    # respond_to do |format|
+    #   format.html { render }
+    #   format.text { render }
+    #   format.xml { render xml: @user }
+    #   format.json { render json: @user.to_json }
+    # end
   end
 
   def edit
@@ -54,6 +50,18 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit([:first_name,
+                                                :last_name,
+                                                :email,
+                                                :password,
+                                                :password_confirmation,
+                                                :image,
+                                                :city])
   end
 
 

@@ -12,4 +12,19 @@
  *
  *= require_tree .
  *= require_self
+ *= rel jquery-3.1.1
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#switch-view {
+  width: 50px;
+  height: 25px;
+  color: red;
+  background-color: red;
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  float: right;
+  z-index: 100;
+}

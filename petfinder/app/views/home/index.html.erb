@@ -1,96 +1,21 @@
-<h3>Maps</h3>
-<div style='width: 800px;'>
-  <div id="geolocation" style='width: 800px; height: 400px;'></div>
-</div>
-
-<!-- <script type="text/javascript">
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'geolocation'}}, function(){
-var marker = handler.addMarkers(<%=raw @hash.to_json %>);
-// handler.bounds.extendWith(markers);
-// handler.fitMapToBounds();
-navigator.geolocation.getCurrentPosition(handler.map.centerOn(marker));
-});
-</script> -->
-
-<script type="text/javascript">
-  var handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {styles:
-    [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
-    }, internal: {id: 'geolocation'} }, function(){
-    var markers = <%= @arr %>;
-    //<%=raw @hash.to_json %>;
-    markers.options = {
-      geodesic: true,
-      strokeColor: '#00ff00',
-      strokeOpacity: 1.0,
-      strokeWeight: 2
-    };
-
-    function addPolyline(line){
-      var transformedline = _.map(line, function(coordinates){
-        return { lat: coordinates[0], lng: coordinates[1] };
-      })
-      handler.addPolyline(transformedline, line.options);
-      handler.bounds.extend(transformedline[0]);
-      handler.bounds.extend(line[ line.length - 1]);
-    }
-
-    addPolyline(markers);
-    handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(15);
-
-    var counter = 0;
-    google.maps.event.addListener(handler.getMap(), 'click', function(object){
-      // console.log(object.latLng.lat())
-      // console.log(object.latLng.lng())
-      if (counter < 1){
-        // var marker = new google.maps.Marker({
-        //   position: object.latLng,
-        //   map: handler.getMap()
-        // });
-        var marker = handler.addMarker({
-          "lat": object.latLng.lat(),
-          "lng": object.latLng.lng(),
-        });
-        markers.push(marker);
-        counter++;
-      }else{
-        var marker = markers.pop();
-        handler.removeMarker(marker);
-
-        var newMarker = handler.addMarker({
-          "lat": object.latLng.lat(),
-          "lng": object.latLng.lng(),
-        });
-        markers.push(newMarker);
-      }
-    });
-
-
-
-
-
-    ///////////////////////////////
-    // old code
-    // be aware chrome >= 50 requires https for geolocation to work
-    // if(navigator.geolocation)
-    //   navigator.geolocation.getCurrentPosition(displayOnMap);
-    // });
-    // function displayOnMap(position){
-    //   var markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    //   handler.bounds.extendWith(markers);
-    //   handler.fitMapToBounds();
-    //   handler.getMap().setZoom(15);
-    // };
-    // // function displayOnMap(position){
-    // //   var marker = handler.addMarker({
-    // //     lat: <%#= @user.latitude %>,
-    // //     lng: <%#= @user.longitude %>
-    // //   });
-    // //   handler.map.centerOn(marker);
-
-  });
-
-</script>
+<section id="home">
+  <div class="header">
+    <div class="back-button">
+    </div>
+    <div class="title">
+      Home Welcome <%= @user.first_name if user_signed_in? %>
+      <%= link_to "Log out", sessions_path	, method: :delete %>
+    </div>
+  </div>
+  <ul class="nav nav-stacked">
+    <div role="presentation" class="nav-title divider">MAKE A REPORT</div>
+    <li role="presentation"><a id="lost-pet" href="/pets/new">Report Your Lost Pet</a></li>
+    <li role="presentation"><a id="found-pet" href="/sighting/new">Found/Sighted Pet</a></li>
+    <div role="presentation" class="nav-title divider">ACCOUNT</div>
+    <li role="presentation"><a id="messages" href="#">Messages</a></li>
+    <li role="presentation"><a id="settings" href="#">Settings</a></li>
+    <li role="presentation"><a id="login" href="/sessions/new">Login</a></li>
+    <li role="presentation"><a id="signup" href="/users/new">Sign Up</a></li>
+    <li role="presentation"><a id="about-us" href="#">About find my pet</a></li>
+  </ul>
+</section>
