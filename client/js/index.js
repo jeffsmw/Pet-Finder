@@ -7,6 +7,7 @@ $(function() {
   setup();
   populateMain();
   petSighting();
+  signup();
 });
 
 var setup = function() {
@@ -121,8 +122,6 @@ function createPet() {
     images: pet-photos,
     lost:   true,
     address: last-seen,
-    longitude: longitude,
-    latitude:  latitude,
     user_id: current_user
   });
 }
@@ -169,5 +168,17 @@ function imageUpload () {
     $.post(`/${DOMAIN}/pets.json`,{data:formData});
 
 
+  });
+}
+
+function signup() {
+  $.post(
+     `${DOMAIN}/users#create`,
+    {
+      first_name: $('signup-first-name').val(),
+      last_name: $('signup-last-name').val(),
+      email: $('signup-form-email').val(),
+      password: $('signup-form-password').val(),
+      password_confirmation: $('signup-form-confirmation').val()
   });
 }

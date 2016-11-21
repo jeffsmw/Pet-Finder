@@ -51,6 +51,8 @@
                 <div role="presentation" class="nav-title divider">ACCOUNT</div>
                 <li role="presentation"><a id="messages" href="#">Messages</a></li>
                 <li role="presentation"><a id="settings" href="#">Settings</a></li>
+                <li role="presentation"><a id="login" href="#">Login</a></li>
+                <li role="presentation"><a id="signup" href="#">Sign Up</a></li>
                 <li role="presentation"><a id="about-us" href="#">About find my pet</a></li>
               </ul>
             </section>
@@ -208,6 +210,70 @@
               </div>
             </section>
 
+            <section id="login">
+              <div class="header">
+                <div class="back-button">
+                  <a href="#">&lt;</a>
+                </div>
+                <div class="title">
+                  Login
+                </div>
+              </div>
+              <div>
+                <form id="login-form" action="http://localhost:3000/sessions" method="post">
+                  <div>
+                    <label>Email: </label>
+                    <input type="email" id="log-in-form-email">
+                  </div>
+                  <div>
+                    <label>Password: </label>
+                    <input type="password" id="log-in-form-password">
+                  </div>
+                  <div>
+                    <input type="submit">
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <section id="signup">
+              <div class="header">
+                <div class="back-button">
+                  <a href="#">&lt;</a>
+                </div>
+                <div class="title">
+                  Sign Up
+                </div>
+              </div>
+              <div>
+                <form id="signup-form" action="http://localhost:3000/sessions" method="post">
+                  <div>
+                    <label>First Name: </label>
+                    <input type="text" id="signup-first-name">
+                  </div>
+                  <div>
+                    <label>Last Name: </label>
+                    <input type="text" id="signup-last-name">
+                  </div>
+                  <div>
+                    <label>Email: </label>
+                    <input type="email" id="signup-form-email">
+                  </div>
+                  <div>
+                    <label>Password:</label>
+                    <input type="password" id="signup-form-password">
+                  </div>
+                  <div>
+                    <label>Password confirmation: </label>
+                    <input type="password" id="signup-form-confirmation">
+                  </div>
+                  <div>
+                    <input type="submit">
+                  </div>
+                </div>
+              </div>
+            </section>
+
 
 
             <div id="app-version">
@@ -231,13 +297,13 @@
           <p>{{address}}<p>
           <p>Note: {{note}}</p>
         </script> -->
-
         <div class="container">
           <div class="row">
             <div class="pet-listing">
             </div>
           </div>
         </div>
+
         <script id="pet-list" type="x-tmpl-mustache">
           <div class="col-md-6 col-lg-4" data-id={{id}}>
             <div class="card pet-card">
@@ -262,6 +328,7 @@
           </div>
         </script>
       </div>
+
     </main>
 
   </body>
