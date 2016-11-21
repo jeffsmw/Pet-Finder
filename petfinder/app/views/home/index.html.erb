@@ -2,8 +2,8 @@
   <div class="header">
     <div class="back-button">
     </div>
-    <div class="title">
-      Welcome <%= @user.first_name if user_signed_in? %>
+    <div class="title" id="home-title">
+      <span style="font-size: xx-large;"><%= fa_icon "paw"%></span>&nbsp;&nbsp;&nbsp;Welcome <%= @user.first_name if user_signed_in? %>
     </div>
   </div>
   <ul class="nav nav-stacked">

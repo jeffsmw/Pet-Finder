@@ -61,8 +61,9 @@ body {
 .action-container .header {
   /*background-color: #1EAFF9;*/
   /*background-color: #e7f2fd;*/
-  /*color: #fff;*/
-  color: #000;
+  color: #fff;
+  background-color: #0084b4;
+  /*color: #000;*/
 }
 
 .action-container .header {
@@ -71,6 +72,10 @@ body {
 
 .action-container .back-button {
   margin: 1.5rem;
+  font-weight:bolder;
+  color: #fff;
+  text-decoration: none;
+  font-size: x-large;
 }
 
 
@@ -106,6 +111,10 @@ section#home ul li:not(:last-child){
   border-bottom: 1px solid lightgrey;
 
 }
+#title {
+  font-size: large;
+}
+
 nav .header .title {
   font-weight: 500;
   font-size: medium;
@@ -128,7 +137,7 @@ nav .ton {
   width: 33%;
 }
 nav .back-button{
-  text-decoration: none;
+  oration: none;
 }
 nav .back-button:hover {
   color: #FFF;
@@ -303,7 +312,9 @@ section#signup{
 #about-container {
   margin: 20px;
 }
-
+#login-container {
+  margin: 20px;
+}
 .user-report {
   background-color: #eee;
   padding: 5px;
